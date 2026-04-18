@@ -197,88 +197,66 @@
         }
         .stars { color: #FFB800; letter-spacing: 2px; font-size: 16px; }
 
-        .phone {
+        .hero-visual {
             position: relative;
-            width: 300px;
-            height: 610px;
-            margin: 0 auto;
-            background: linear-gradient(180deg, #1a1a24 0%, #0f0f18 100%);
-            border-radius: 48px;
-            padding: 10px;
-            box-shadow:
-                var(--shadow-lg),
-                inset 0 0 0 2px rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-shot {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 9 / 19.5;
+            border-radius: 40px;
+            overflow: hidden;
+            background: #0B1220;
+            box-shadow: var(--shadow-lg);
             transform: rotate(-3deg);
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .phone:hover { transform: rotate(0deg) translateY(-8px); }
-        .phone::before {
-            content: '';
-            position: absolute;
-            top: 18px; left: 50%;
-            transform: translateX(-50%);
-            width: 100px; height: 28px;
-            background: #000;
-            border-radius: 999px;
-            z-index: 3;
+        .hero-shot:hover { transform: rotate(0deg) translateY(-8px); }
+        .hero-shot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center bottom;
+            display: block;
         }
-        .phone-screen {
-            width: 100%; height: 100%;
-            background: var(--bg);
-            border-radius: 40px;
-            overflow: hidden;
-            position: relative;
-            padding: 50px 18px 18px;
+
+        .gallery {
+            padding: 40px 0 80px;
         }
-        .screen-greet {
-            font-size: 13px;
-            color: var(--text-soft);
-            font-weight: 500;
-        }
-        .screen-title {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        .screen-card {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 16px;
-            margin-bottom: 14px;
-            box-shadow: var(--shadow-sm);
-        }
-        .screen-card-label { font-size: 11px; color: var(--text-soft); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .screen-card-value { font-size: 26px; font-weight: 800; letter-spacing: -0.8px; margin-top: 4px; color: var(--text); }
-        .screen-card-meta { font-size: 11px; color: #10B981; font-weight: 600; margin-top: 2px; }
-        .sub-item {
+        .gallery-track {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 12px;
-            margin-bottom: 10px;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 8px 4px 24px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--brand) transparent;
         }
-        .sub-ico {
-            width: 36px; height: 36px;
-            border-radius: 10px;
-            display: grid;
-            place-items: center;
-            font-size: 16px;
-            font-weight: 800;
-            color: white;
-            flex-shrink: 0;
+        .gallery-track::-webkit-scrollbar { height: 8px; }
+        .gallery-track::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 999px; }
+        .gallery-track::-webkit-scrollbar-track { background: transparent; }
+        .shot {
+            flex: 0 0 auto;
+            width: 260px;
+            aspect-ratio: 9 / 19.5;
+            border-radius: 28px;
+            overflow: hidden;
+            scroll-snap-align: center;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #0B1220;
         }
-        .sub-ico.n { background: linear-gradient(135deg, #E50914, #B0060F); }
-        .sub-ico.s { background: linear-gradient(135deg, #1DB954, #169c46); }
-        .sub-ico.c { background: linear-gradient(135deg, #6366F1, #4F46E5); }
-        .sub-name { font-size: 13px; font-weight: 700; color: var(--text); }
-        .sub-date { font-size: 11px; color: var(--text-soft); margin-top: 1px; }
-        .sub-price { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--text); }
+        .shot:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .shot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         .features {
             padding: 80px 0;
@@ -426,7 +404,8 @@
             .features { grid-template-columns: 1fr; padding: 48px 0; }
             .why { padding: 48px 0; }
             .cta-section { padding: 48px 24px; margin: 48px 0; }
-            .phone { transform: rotate(0); }
+            .hero-shot { transform: rotate(0); max-width: 280px; }
+            .shot { width: 220px; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
@@ -470,42 +449,24 @@
                     </div>
                 </div>
             </div>
-            <div class="reveal">
-                <div class="phone">
-                    <div class="phone-screen">
-                        <div class="screen-greet">Buenas tardes</div>
-                        <div class="screen-title">Resumen</div>
-                        <div class="screen-card">
-                            <div class="screen-card-label">Gasto mensual</div>
-                            <div class="screen-card-value">47,98 €</div>
-                            <div class="screen-card-meta">↓ 8 € menos que el mes pasado</div>
-                        </div>
-                        <div class="sub-item">
-                            <div class="sub-ico n">N</div>
-                            <div>
-                                <div class="sub-name">Netflix</div>
-                                <div class="sub-date">Renueva el 24 abr</div>
-                            </div>
-                            <div class="sub-price">15,99 €</div>
-                        </div>
-                        <div class="sub-item">
-                            <div class="sub-ico s">S</div>
-                            <div>
-                                <div class="sub-name">Spotify</div>
-                                <div class="sub-date">Renueva el 2 may</div>
-                            </div>
-                            <div class="sub-price">10,99 €</div>
-                        </div>
-                        <div class="sub-item">
-                            <div class="sub-ico c">iC</div>
-                            <div>
-                                <div class="sub-name">iCloud+</div>
-                                <div class="sub-date">Renueva el 10 may</div>
-                            </div>
-                            <div class="sub-price">2,99 €</div>
-                        </div>
-                    </div>
+            <div class="hero-visual reveal">
+                <div class="hero-shot">
+                    <img src="./assets/dashboard.png" alt="Pantalla principal de Trackle mostrando las suscripciones" loading="eager">
                 </div>
+            </div>
+        </section>
+
+        <section class="gallery reveal">
+            <div class="section-head">
+                <h2>Mira Trackle en acción</h2>
+                <p>Un vistazo a las pantallas que vas a usar cada día.</p>
+            </div>
+            <div class="gallery-track">
+                <div class="shot"><img src="./assets/dashboard.png" alt="Dashboard principal" loading="lazy"></div>
+                <div class="shot"><img src="./assets/calendar.png" alt="Vista de calendario" loading="lazy"></div>
+                <div class="shot"><img src="./assets/analytics.png" alt="Estadísticas detalladas" loading="lazy"></div>
+                <div class="shot"><img src="./assets/ai.png" alt="Asistente de IA con Apple Intelligence" loading="lazy"></div>
+                <div class="shot"><img src="./assets/widgets.png" alt="Widgets para la pantalla de inicio" loading="lazy"></div>
             </div>
         </section>
 
