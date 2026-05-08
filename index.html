@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://samuelclr91-del.github.io/Trackle/">
     <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/home-dashboard.jpeg">
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23007AFF'/%3E%3Cstop offset='1' stop-color='%235AC8FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-family='-apple-system,SF Pro Display,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="./assets/trackle-logo.png">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +23,7 @@
             --accent: #007AFF;
             --accent-light: #5AC8FA;
             --accent-grad: linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%);
-            --bg: #F2F1EE;
+            --bg: #F7F8FA;
             --surface: #FFFFFF;
             --text: #0B1220;
             --text-muted: #5C6678;
@@ -56,7 +56,7 @@
             z-index: 50;
             backdrop-filter: saturate(180%) blur(18px);
             -webkit-backdrop-filter: saturate(180%) blur(18px);
-            background: rgba(242, 241, 238, 0.78);
+            background: rgba(247, 248, 250, 0.78);
             border-bottom: 1px solid transparent;
             transition: border-color .25s ease;
         }
@@ -72,12 +72,11 @@
         }
         .brand { display: flex; align-items: center; gap: 10px; }
         .brand-icon {
-            width: 34px; height: 34px;
-            background: var(--accent-grad);
-            border-radius: 9px;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 800; font-size: 17px;
-            box-shadow: 0 4px 14px rgba(0, 122, 255, 0.35);
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 122, 255, 0.26);
+            object-fit: cover;
         }
         .brand-name { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
 
@@ -133,8 +132,13 @@
         /* ---------- Hero ---------- */
         .hero {
             position: relative;
-            padding: 80px 24px 40px;
+            padding: 72px 24px 54px;
             overflow: hidden;
+            min-height: calc(100vh - 66px);
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(247,248,250,0.78) 52%, rgba(235,245,255,0.96) 100%);
         }
         .hero::before {
             content: none;
@@ -142,14 +146,16 @@
         .hero-inner {
             position: relative;
             z-index: 1;
-            max-width: 1180px;
+            max-width: 1120px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+            display: block;
+            width: 100%;
         }
-        .hero-content { max-width: 540px; }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
         .eyebrow {
             display: inline-flex;
             align-items: center;
@@ -186,6 +192,9 @@
             color: var(--text-muted);
             line-height: 1.55;
             margin-bottom: 32px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .hero-cta {
             display: flex;
@@ -193,6 +202,7 @@
             gap: 16px;
             flex-wrap: wrap;
             margin-bottom: 16px;
+            justify-content: center;
         }
         .app-store-badge img { height: 52px; display: block; }
         .hero-meta {
@@ -201,6 +211,7 @@
             display: flex;
             gap: 14px;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
         .hero-meta svg { width: 14px; height: 14px; color: var(--accent); }
@@ -212,6 +223,7 @@
             justify-content: center;
             align-items: center;
             min-height: 0;
+            margin-top: 42px;
         }
         .iphone {
             position: relative;
@@ -253,28 +265,8 @@
             object-fit: cover;
             display: block;
         }
-        /* Placeholder content shown until a real screenshot is added */
-        .screen-placeholder {
-            color: white;
-            text-align: center;
-            padding: 40px 24px;
-            opacity: 0.85;
-        }
-        .screen-placeholder .ph-logo {
-            width: 60px; height: 60px;
-            background: rgba(255, 255, 255, 0.18);
-            border-radius: 16px;
-            display: inline-flex;
-            align-items: center; justify-content: center;
-            font-size: 28px; font-weight: 800;
-            margin-bottom: 18px;
-            backdrop-filter: blur(20px);
-        }
-        .screen-placeholder .ph-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-        .screen-placeholder .ph-sub { font-size: 13px; opacity: 0.75; line-height: 1.5; }
-
         /* ---------- Section base ---------- */
-        section { padding: 100px 24px; }
+        section { padding: 92px 24px; }
         .section-inner { max-width: 1180px; margin: 0 auto; }
         .section-header { text-align: center; max-width: 680px; margin: 0 auto 64px; }
         .section-tag {
@@ -412,11 +404,11 @@
         .device-shot {
             width: min(410px, 100%);
             margin: 0 auto;
-            border-radius: 36px;
+            border-radius: 38px;
             overflow: hidden;
             background: #E8EEF5;
             border: 1px solid rgba(11, 18, 32, 0.08);
-            box-shadow: 0 28px 70px rgba(11, 18, 32, 0.18);
+            box-shadow: 0 28px 80px rgba(11, 18, 32, 0.18);
         }
         .device-shot img {
             display: block;
@@ -424,9 +416,15 @@
             height: auto;
         }
         .hero-shot {
-            width: min(360px, 92vw);
-            border-radius: 32px;
-            transform: translateY(6px);
+            width: min(860px, 100%);
+            height: clamp(330px, 46vh, 560px);
+            border-radius: 44px;
+            transform: none;
+        }
+        .hero-shot img {
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
         }
         .showcase-shot { width: min(390px, 92vw); }
 
@@ -616,7 +614,7 @@
     <header class="header" id="header">
         <div class="header-inner">
             <a href="#" class="brand">
-                <div class="brand-icon">T</div>
+                <img class="brand-icon" src="./assets/trackle-logo.png" alt="">
                 <span class="brand-name">Trackle</span>
             </a>
             <nav class="nav">
@@ -648,7 +646,7 @@
                         <span data-i18n="hero.eyebrow">Now on the App Store</span>
                     </div>
                     <h1>
-                        <span data-i18n="hero.h1.line1">Subscriptions,</span><br>
+                        <span data-i18n="hero.h1.line1">Subscriptions,</span>
                         <span class="grad" data-i18n="hero.h1.line2">finally under control.</span>
                     </h1>
                     <p class="lead" data-i18n="hero.lead">
@@ -847,7 +845,7 @@
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="#" class="brand">
-                    <div class="brand-icon">T</div>
+                    <img class="brand-icon" src="./assets/trackle-logo.png" alt="">
                     <span class="brand-name">Trackle</span>
                 </a>
                 <p data-i18n="footer.tagline">The friendliest way to keep every subscription, payment and renewal in one place — without giving up your privacy.</p>

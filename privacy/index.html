@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trackle — Privacy Policy</title>
     <meta name="theme-color" content="#007AFF">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23007AFF'/%3E%3Cstop offset='1' stop-color='%235AC8FA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-family='-apple-system,SF Pro Display,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="../assets/trackle-logo.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -35,10 +35,9 @@
         .logo { display: flex; align-items: center; gap: 10px; }
         .logo-icon {
             width: 40px; height: 40px;
-            background: linear-gradient(135deg, #007AFF, #5AC8FA);
             border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 18px; font-weight: 800;
+            display: block;
+            object-fit: cover;
             box-shadow: 0 4px 14px rgba(0, 122, 255, 0.3);
         }
         .logo-text { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; color: var(--text); text-decoration: none; }
@@ -115,7 +114,7 @@
     <div class="container">
         <div class="top">
             <a href="../" class="logo" style="text-decoration:none;">
-                <div class="logo-icon">T</div>
+                <img class="logo-icon" src="../assets/trackle-logo.png" alt="">
                 <span class="logo-text">Trackle</span>
             </a>
             <div class="lang-toggle" role="group" aria-label="Language">
