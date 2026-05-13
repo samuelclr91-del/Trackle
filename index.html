@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trackle — Subscriptions, finally under control</title>
-    <meta name="description" content="Trackle gathers all your subscriptions in one place. Get reminders, see where your money goes, and save every month. Private, on-device, made for iOS.">
+    <title>Clr91dev Apps — Trackle, Bezly and more</title>
+    <meta name="description" content="A home for the iOS apps built by Clr91dev: Trackle for subscriptions, Bezly for device mockups, and the next apps coming soon.">
     <meta name="theme-color" content="#007AFF">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Trackle — Subscriptions, finally under control">
-    <meta property="og:description" content="Track every subscription, get smart reminders, and save every month. Private by design.">
+    <meta property="og:title" content="Clr91dev Apps — Trackle, Bezly and more">
+    <meta property="og:description" content="Discover the iOS apps built by Clr91dev: Trackle, Bezly and future releases.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://samuelclr91-del.github.io/Trackle/">
     <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/home-dashboard.jpeg">
@@ -289,6 +289,115 @@
             font-size: 18px;
             color: var(--text-muted);
             line-height: 1.55;
+        }
+
+        /* ---------- Apps hub ---------- */
+        .apps-section {
+            padding-top: 82px;
+            background: linear-gradient(180deg, #F7F8FA 0%, #FFFFFF 100%);
+        }
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+        .app-card {
+            position: relative;
+            min-height: 360px;
+            border-radius: 30px;
+            overflow: hidden;
+            padding: 28px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .app-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--card-bg);
+            opacity: 0.16;
+            pointer-events: none;
+        }
+        .app-card > * { position: relative; z-index: 1; }
+        .app-card.trackle { --card-bg: linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%); }
+        .app-card.bezly { --card-bg: linear-gradient(135deg, #111827 0%, #2DD4BF 48%, #A78BFA 100%); }
+        .app-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.72);
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid rgba(11, 18, 32, 0.06);
+        }
+        .app-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 22px 0 16px;
+        }
+        .app-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: 0 12px 30px rgba(11, 18, 32, 0.18);
+        }
+        .app-head h3 {
+            font-size: 30px;
+            line-height: 1;
+            letter-spacing: -0.8px;
+        }
+        .app-card p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.58;
+            max-width: 480px;
+        }
+        .app-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 22px 0 26px;
+        }
+        .app-tags span {
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: rgba(11, 18, 32, 0.06);
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .app-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            height: 42px;
+            padding: 0 16px;
+            border-radius: 12px;
+            background: rgba(11, 18, 32, 0.06);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 700;
+            transition: transform .15s, background .15s;
+        }
+        .btn-secondary:hover { transform: translateY(-1px); background: rgba(11, 18, 32, 0.09); }
+        .btn-disabled {
+            opacity: 0.55;
+            pointer-events: none;
         }
 
         /* ---------- Features grid ---------- */
@@ -600,6 +709,7 @@
             section { padding: 70px 20px; }
             .hero { padding: 50px 20px 30px; }
             .features-grid { grid-template-columns: 1fr; }
+            .apps-grid { grid-template-columns: 1fr; }
             .footer-inner { grid-template-columns: 1fr; }
             .final-cta-card { padding: 50px 28px; }
             .iphone { width: 250px; height: 510px; }
@@ -615,12 +725,12 @@
         <div class="header-inner">
             <a href="#" class="brand">
                 <img class="brand-icon" src="./assets/trackle-logo.png" alt="">
-                <span class="brand-name">Trackle</span>
+                <span class="brand-name">Clr91dev Apps</span>
             </a>
             <nav class="nav">
                 <div class="nav-links">
-                    <a href="#features" data-i18n="nav.features">Features</a>
-                    <a href="#ios" data-i18n="nav.ios">Built for iOS</a>
+                    <a href="#apps" data-i18n="nav.apps">Apps</a>
+                    <a href="#features" data-i18n="nav.trackle">Trackle</a>
                     <a href="./privacy.html" data-i18n="nav.privacy">Privacy</a>
                 </div>
                 <div class="lang-toggle" role="group" aria-label="Language">
@@ -629,7 +739,7 @@
                 </div>
                 <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" class="btn-primary">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.94-3.08.4-1.09-.55-2.09-.58-3.24 0-1.44.74-2.2.6-3.06-.31C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.78 1.18-.21 2.31-.86 3.57-.78 1.51.12 2.65.71 3.4 1.78-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.06zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-                    <span data-i18n="nav.download">Download</span>
+                    <span data-i18n="nav.download">Trackle</span>
                 </a>
             </nav>
         </div>
@@ -643,24 +753,23 @@
                 <div class="hero-content">
                     <div class="eyebrow">
                         <span class="dot"></span>
-                        <span data-i18n="hero.eyebrow">Now on the App Store</span>
+                        <span data-i18n="hero.eyebrow">Apps by Clr91dev</span>
                     </div>
                     <h1>
-                        <span data-i18n="hero.h1.line1">Subscriptions,</span>
-                        <span class="grad" data-i18n="hero.h1.line2">finally under control.</span>
+                        <span data-i18n="hero.h1.line1">Useful iPhone apps,</span>
+                        <span class="grad" data-i18n="hero.h1.line2">built with care.</span>
                     </h1>
                     <p class="lead" data-i18n="hero.lead">
-                        Trackle gathers all your subscriptions in one place. Get smart reminders before each renewal, see where your money goes, and save every month.
+                        Discover the apps I'm building: Trackle to control subscriptions, Bezly to create clean device mockups, and new tools coming next.
                     </p>
                     <div class="hero-cta">
-                        <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" class="app-store-badge">
-                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-                        </a>
+                        <a href="#apps" class="btn-primary" data-i18n="hero.cta.apps">View apps</a>
+                        <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" class="btn-secondary" data-i18n="hero.cta.trackle">Open Trackle</a>
                     </div>
                     <div class="hero-meta">
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="hero.meta.free">Free to try</span></span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="hero.meta.private">100% private</span></span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="hero.meta.icloud">iCloud sync</span></span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="hero.meta.native">Native iOS</span></span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="hero.meta.private">Privacy-focused</span></span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="hero.meta.indie">Independent apps</span></span>
                     </div>
                 </div>
 
@@ -668,6 +777,59 @@
                     <figure class="device-shot hero-shot">
                         <img src="./assets/home-dashboard.jpeg" alt="Trackle home dashboard showing monthly subscription spend" fetchpriority="high">
                     </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ APPS HUB ============ -->
+        <section id="apps" class="apps-section">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-tag" data-i18n="apps.tag">Apps</div>
+                    <h2 data-i18n="apps.title">One place for every app I build.</h2>
+                    <p data-i18n="apps.lead">Trackle stays here as the first published app. Bezly gets its own space too, so future releases can be added without rebuilding the whole website.</p>
+                </div>
+
+                <div class="apps-grid">
+                    <article class="app-card trackle">
+                        <div>
+                            <span class="app-kicker" data-i18n="apps.trackle.status">Available on the App Store</span>
+                            <div class="app-head">
+                                <img class="app-logo" src="./assets/trackle-logo.png" alt="Trackle app icon">
+                                <h3>Trackle</h3>
+                            </div>
+                            <p data-i18n="apps.trackle.desc">Control subscriptions, renewals and monthly spending with reminders, statistics and a private iOS experience.</p>
+                            <div class="app-tags">
+                                <span data-i18n="apps.trackle.tag1">Subscriptions</span>
+                                <span data-i18n="apps.trackle.tag2">Reminders</span>
+                                <span data-i18n="apps.trackle.tag3">Private by design</span>
+                            </div>
+                        </div>
+                        <div class="app-actions">
+                            <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" class="btn-primary" data-i18n="apps.trackle.download">Download</a>
+                            <a href="#features" class="btn-secondary" data-i18n="apps.trackle.more">Learn more</a>
+                        </div>
+                    </article>
+
+                    <article class="app-card bezly">
+                        <div>
+                            <span class="app-kicker" data-i18n="apps.bezly.status">Coming soon</span>
+                            <div class="app-head">
+                                <img class="app-logo" src="./assets/bezly-logo.png" alt="Bezly app icon">
+                                <h3>Bezly</h3>
+                            </div>
+                            <p data-i18n="apps.bezly.desc">Create polished device mockups, App Store screenshots and animated videos from your own images or screen recordings.</p>
+                            <div class="app-tags">
+                                <span data-i18n="apps.bezly.tag1">Mockups</span>
+                                <span data-i18n="apps.bezly.tag2">App Store</span>
+                                <span data-i18n="apps.bezly.tag3">Video exports</span>
+                            </div>
+                        </div>
+                        <div class="app-actions">
+                            <a class="btn-primary btn-disabled" aria-disabled="true" data-i18n="apps.bezly.soon">App Store soon</a>
+                            <a href="mailto:clr91dev@gmail.com?subject=Bezly" class="btn-secondary" data-i18n="apps.bezly.contact">Contact</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -886,18 +1048,40 @@
         // ---------- i18n ----------
         const translations = {
             en: {
+                'nav.apps': 'Apps',
+                'nav.trackle': 'Trackle',
                 'nav.features': 'Features',
                 'nav.ios': 'Built for iOS',
                 'nav.privacy': 'Privacy',
-                'nav.download': 'Download',
+                'nav.download': 'Trackle',
 
-                'hero.eyebrow': 'Now on the App Store',
-                'hero.h1.line1': 'Subscriptions,',
-                'hero.h1.line2': 'finally under control.',
-                'hero.lead': "Trackle gathers all your subscriptions in one place. Get smart reminders before each renewal, see where your money goes, and save every month.",
-                'hero.meta.free': 'Free to try',
-                'hero.meta.private': '100% private',
-                'hero.meta.icloud': 'iCloud sync',
+                'hero.eyebrow': 'Apps by Clr91dev',
+                'hero.h1.line1': 'Useful iPhone apps,',
+                'hero.h1.line2': 'built with care.',
+                'hero.lead': "Discover the apps I'm building: Trackle to control subscriptions, Bezly to create clean device mockups, and new tools coming next.",
+                'hero.cta.apps': 'View apps',
+                'hero.cta.trackle': 'Open Trackle',
+                'hero.meta.native': 'Native iOS',
+                'hero.meta.private': 'Privacy-focused',
+                'hero.meta.indie': 'Independent apps',
+
+                'apps.tag': 'Apps',
+                'apps.title': 'One place for every app I build.',
+                'apps.lead': 'Trackle stays here as the first published app. Bezly gets its own space too, so future releases can be added without rebuilding the whole website.',
+                'apps.trackle.status': 'Available on the App Store',
+                'apps.trackle.desc': 'Control subscriptions, renewals and monthly spending with reminders, statistics and a private iOS experience.',
+                'apps.trackle.tag1': 'Subscriptions',
+                'apps.trackle.tag2': 'Reminders',
+                'apps.trackle.tag3': 'Private by design',
+                'apps.trackle.download': 'Download',
+                'apps.trackle.more': 'Learn more',
+                'apps.bezly.status': 'Coming soon',
+                'apps.bezly.desc': 'Create polished device mockups, App Store screenshots and animated videos from your own images or screen recordings.',
+                'apps.bezly.tag1': 'Mockups',
+                'apps.bezly.tag2': 'App Store',
+                'apps.bezly.tag3': 'Video exports',
+                'apps.bezly.soon': 'App Store soon',
+                'apps.bezly.contact': 'Contact',
 
                 'features.tag': 'Features',
                 'features.title': 'Everything you need to stay on top of your spending.',
@@ -956,22 +1140,44 @@
                 'footer.privacy': 'Privacy Policy',
                 'footer.terms': 'Terms of Use',
                 'footer.support': 'Support',
-                'footer.copy': '© 2026 Trackle',
+                'footer.copy': '© 2026 Clr91dev Apps',
                 'footer.crafted': 'Designed and built by Clr91dev'
             },
             es: {
+                'nav.apps': 'Apps',
+                'nav.trackle': 'Trackle',
                 'nav.features': 'Funciones',
                 'nav.ios': 'Hecho para iOS',
                 'nav.privacy': 'Privacidad',
-                'nav.download': 'Descargar',
+                'nav.download': 'Trackle',
 
-                'hero.eyebrow': 'Disponible en la App Store',
-                'hero.h1.line1': 'Tus suscripciones,',
-                'hero.h1.line2': 'por fin bajo control.',
-                'hero.lead': 'Trackle reúne todas tus suscripciones en un solo lugar. Recibe recordatorios antes de cada renovación, descubre a dónde va tu dinero y ahorra cada mes.',
-                'hero.meta.free': 'Gratis para empezar',
-                'hero.meta.private': '100% privado',
-                'hero.meta.icloud': 'Sincronización iCloud',
+                'hero.eyebrow': 'Apps de Clr91dev',
+                'hero.h1.line1': 'Apps útiles para iPhone,',
+                'hero.h1.line2': 'creadas con cuidado.',
+                'hero.lead': 'Descubre las apps que estoy creando: Trackle para controlar suscripciones, Bezly para crear mockups limpios de dispositivos y nuevas herramientas próximamente.',
+                'hero.cta.apps': 'Ver apps',
+                'hero.cta.trackle': 'Abrir Trackle',
+                'hero.meta.native': 'iOS nativo',
+                'hero.meta.private': 'Privacidad cuidada',
+                'hero.meta.indie': 'Apps independientes',
+
+                'apps.tag': 'Apps',
+                'apps.title': 'Un lugar para todas las apps que vaya creando.',
+                'apps.lead': 'Trackle se mantiene aquí como la primera app publicada. Bezly también tiene su propio espacio, para poder añadir futuras apps sin rehacer toda la web.',
+                'apps.trackle.status': 'Disponible en la App Store',
+                'apps.trackle.desc': 'Controla suscripciones, renovaciones y gasto mensual con recordatorios, estadísticas y una experiencia privada para iOS.',
+                'apps.trackle.tag1': 'Suscripciones',
+                'apps.trackle.tag2': 'Recordatorios',
+                'apps.trackle.tag3': 'Privada por diseño',
+                'apps.trackle.download': 'Descargar',
+                'apps.trackle.more': 'Ver más',
+                'apps.bezly.status': 'Próximamente',
+                'apps.bezly.desc': 'Crea mockups de dispositivos, capturas para App Store y vídeos animados a partir de tus imágenes o grabaciones de pantalla.',
+                'apps.bezly.tag1': 'Mockups',
+                'apps.bezly.tag2': 'App Store',
+                'apps.bezly.tag3': 'Exportar vídeo',
+                'apps.bezly.soon': 'Pronto en App Store',
+                'apps.bezly.contact': 'Contacto',
 
                 'features.tag': 'Funciones',
                 'features.title': 'Todo lo que necesitas para controlar tus gastos.',
@@ -1030,7 +1236,7 @@
                 'footer.privacy': 'Política de privacidad',
                 'footer.terms': 'Términos de uso',
                 'footer.support': 'Soporte',
-                'footer.copy': '© 2026 Trackle',
+                'footer.copy': '© 2026 Clr91dev Apps',
                 'footer.crafted': 'Diseñado y desarrollado por Clr91dev'
             }
         };
