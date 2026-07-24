@@ -11,9 +11,10 @@
     <meta property="og:description" content="Discover apps by clr91dev, starting with Trackle and Bezly.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://samuelclr91-del.github.io/Trackle/">
-    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/marketing/dashboard.jpg">
+    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/store/en/01-trackle-control.jpg">
 
-    <link rel="icon" href="./assets/trackle-logo.png">
+    <link rel="icon" type="image/png" href="./assets/clr91dev-mark.png">
+    <link rel="apple-touch-icon" href="./assets/clr91dev-mark.png">
 
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -85,8 +86,8 @@
         .brand img {
             width: 36px;
             height: 36px;
-            border-radius: 10px;
-            box-shadow: 0 10px 24px rgba(22, 119, 255, 0.24);
+            border-radius: 11px;
+            box-shadow: 0 10px 24px rgba(8, 18, 32, 0.18);
         }
 
         .brand span {
@@ -759,7 +760,7 @@
         <header class="nav">
             <div class="nav-inner">
                 <a href="#" class="brand" aria-label="clr91dev">
-                    <img src="./assets/trackle-logo.png" alt="">
+                    <img src="./assets/clr91dev-mark.png" alt="">
                     <span>clr91dev</span>
                 </a>
                 <div class="nav-links" aria-label="Primary navigation">
@@ -796,7 +797,7 @@
 
                     <div class="apps-board" aria-label="Featured apps">
                         <article class="app-card">
-                            <img class="app-icon" src="./assets/trackle-logo.png" alt="">
+                            <img class="app-icon" src="./assets/trackle-app-icon.png" alt="Trackle">
                             <div class="app-meta">
                                 <h2>Trackle</h2>
                                 <p data-i18n="apps.trackle.text">Subscriptions, renewals, widgets and spending insights in one private dashboard.</p>
@@ -866,7 +867,14 @@
             <section id="calendar">
                 <div class="section-inner story">
                     <figure class="shot">
-                        <img src="./assets/marketing/calendar.jpg" alt="Trackle calendar view with subscription renewals" loading="lazy">
+                        <img
+                            src="./assets/store/en/02-trackle-calendar.jpg"
+                            data-localized-image
+                            data-src-en="./assets/store/en/02-trackle-calendar.jpg"
+                            data-src-es="./assets/store/es/02-trackle-calendar.jpg"
+                            alt="Trackle calendar view with subscription renewals"
+                            loading="lazy"
+                        >
                     </figure>
                     <div class="copy-card">
                         <p class="kicker" data-i18n="calendar.kicker">Calendar View</p>
@@ -882,20 +890,22 @@
             </section>
 
             <section id="analytics">
-                <div class="section-inner">
-                    <div class="section-head">
+                <div class="section-inner story reverse">
+                    <div class="copy-card">
                         <p class="kicker" data-i18n="analytics.kicker">Smart Analytics</p>
                         <h2 data-i18n="analytics.title">Detailed statistics of your spending.</h2>
                         <p data-i18n="analytics.text">See patterns by month, category and annual projection. The charts are built to make subscription decisions faster.</p>
                     </div>
-                    <div class="ai-grid">
-                        <figure class="shot">
-                            <img src="./assets/marketing/analytics.jpg" alt="Trackle statistics screen with monthly trend and category chart" loading="lazy">
-                        </figure>
-                        <figure class="shot">
-                            <img src="./assets/marketing/analytics-detail.jpg" alt="Trackle category chart with annual and monthly totals" loading="lazy">
-                        </figure>
-                    </div>
+                    <figure class="shot">
+                        <img
+                            src="./assets/store/en/03-trackle-statistics.jpg"
+                            data-localized-image
+                            data-src-en="./assets/store/en/03-trackle-statistics.jpg"
+                            data-src-es="./assets/store/es/03-trackle-statistics.jpg"
+                            alt="Trackle statistics screen with monthly and annual totals"
+                            loading="lazy"
+                        >
+                    </figure>
                 </div>
             </section>
 
@@ -911,59 +921,65 @@
                             <li data-i18n="ai.b3">No financial data sent to external servers</li>
                         </ul>
                     </div>
-                    <div class="ai-grid">
-                        <figure class="shot">
-                            <img src="./assets/marketing/ai-analysis.jpg" alt="Trackle AI Assistant analysis cards" loading="lazy">
-                        </figure>
-                        <figure class="shot">
-                            <img src="./assets/marketing/ai-chat.jpg" alt="Trackle AI Assistant chat questions" loading="lazy">
-                        </figure>
-                    </div>
+                    <figure class="shot">
+                        <img
+                            src="./assets/store/en/04-trackle-assistant.jpg"
+                            data-localized-image
+                            data-src-en="./assets/store/en/04-trackle-assistant.jpg"
+                            data-src-es="./assets/store/es/04-trackle-assistant.jpg"
+                            alt="Trackle AI Assistant"
+                            loading="lazy"
+                        >
+                    </figure>
                 </div>
             </section>
 
             <section id="widgets" class="widgets-band">
                 <div class="section-inner story">
                     <figure class="shot">
-                        <img src="./assets/marketing/widgets.jpg" alt="Trackle widgets on the iPhone Home Screen" loading="lazy">
+                        <img
+                            src="./assets/store/en/01-trackle-control.jpg"
+                            data-localized-image
+                            data-src-en="./assets/store/en/01-trackle-control.jpg"
+                            data-src-es="./assets/store/es/01-trackle-control.jpg"
+                            alt="Trackle subscriptions dashboard"
+                            loading="lazy"
+                        >
                     </figure>
                     <div class="copy-card">
-                        <p class="kicker" data-i18n="widgets.kicker">Trackle Widgets</p>
-                        <h2 data-i18n="widgets.title">Spending and renewals at a glance.</h2>
-                        <p data-i18n="widgets.text">Put monthly spending, remaining budget and upcoming renewals right on your Home Screen.</p>
+                        <p class="kicker" data-i18n="widgets.kicker">Your dashboard</p>
+                        <h2 data-i18n="widgets.title">Everything under control at a glance.</h2>
+                        <p data-i18n="widgets.text">See monthly spending, upcoming renewals and every active subscription from one calm, focused dashboard.</p>
                         <ul>
-                            <li data-i18n="widgets.b1">Small and medium widget layouts</li>
-                            <li data-i18n="widgets.b2">Logos, prices and renewal days</li>
-                            <li data-i18n="widgets.b3">Works in light and dark mode</li>
+                            <li data-i18n="widgets.b1">Monthly total and active subscriptions</li>
+                            <li data-i18n="widgets.b2">Upcoming renewals with full-color icons</li>
+                            <li data-i18n="widgets.b3">Widgets for your Home Screen</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
             <section>
-                <div class="section-inner">
-                    <div class="section-head">
+                <div class="section-inner story">
+                    <figure class="shot">
+                        <img
+                            src="./assets/store/en/05-trackle-quick-add.jpg"
+                            data-localized-image
+                            data-src-en="./assets/store/en/05-trackle-quick-add.jpg"
+                            data-src-es="./assets/store/es/05-trackle-quick-add.jpg"
+                            alt="Trackle quick subscription suggestions"
+                            loading="lazy"
+                        >
+                    </figure>
+                    <div class="copy-card">
                         <p class="kicker" data-i18n="flow.kicker">Fast setup</p>
                         <h2 data-i18n="flow.title">Add subscriptions without friction.</h2>
                         <p data-i18n="flow.text">Start with quick suggestions or add a service manually. Trackle keeps the interface calm and focused while you enter only what matters.</p>
-                    </div>
-                    <div class="gallery">
-                        <article class="gallery-card">
-                            <img src="./assets/marketing/quick-suggestions.jpg" alt="Quick subscription suggestions in Trackle" loading="lazy">
-                            <p data-i18n="flow.card1">Popular subscriptions ready to add.</p>
-                        </article>
-                        <article class="gallery-card">
-                            <img src="./assets/marketing/add-flow.jpg" alt="Trackle guided price entry flow" loading="lazy">
-                            <p data-i18n="flow.card2">A guided flow for amount, cycle and renewal day.</p>
-                        </article>
-                        <article class="gallery-card">
-                            <img src="./assets/marketing/widget-list.jpg" alt="Trackle medium widget with subscriptions list" loading="lazy">
-                            <p data-i18n="flow.card3">A wider widget view for monthly totals.</p>
-                        </article>
-                        <article class="gallery-card">
-                            <img src="./assets/marketing/dashboard.jpg" alt="Trackle home screen dashboard" loading="lazy">
-                            <p data-i18n="flow.card4">Your dashboard stays simple and readable.</p>
-                        </article>
+                        <ul>
+                            <li data-i18n="flow.card1">Popular subscriptions ready to add.</li>
+                            <li data-i18n="flow.card2">A guided flow for amount, cycle and renewal day.</li>
+                            <li data-i18n="flow.card4">Your dashboard stays simple and readable.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -985,7 +1001,7 @@
             <div class="footer-inner">
                 <div>
                     <a href="#" class="brand">
-                        <img src="./assets/trackle-logo.png" alt="">
+                        <img src="./assets/clr91dev-mark.png" alt="">
                         <span>clr91dev</span>
                     </a>
                     <p data-i18n="footer.text">Independent iPhone apps built by clr91dev.</p>
@@ -1064,12 +1080,12 @@
                 "ai.b1": "On-device analysis",
                 "ai.b2": "Fast predefined questions",
                 "ai.b3": "No financial data sent to external servers",
-                "widgets.kicker": "Trackle Widgets",
-                "widgets.title": "Spending and renewals at a glance.",
-                "widgets.text": "Put monthly spending, remaining budget and upcoming renewals right on your Home Screen.",
-                "widgets.b1": "Small and medium widget layouts",
-                "widgets.b2": "Logos, prices and renewal days",
-                "widgets.b3": "Works in light and dark mode",
+                "widgets.kicker": "Your dashboard",
+                "widgets.title": "Everything under control at a glance.",
+                "widgets.text": "See monthly spending, upcoming renewals and every active subscription from one calm, focused dashboard.",
+                "widgets.b1": "Monthly total and active subscriptions",
+                "widgets.b2": "Upcoming renewals with full-color icons",
+                "widgets.b3": "Widgets for your Home Screen",
                 "flow.kicker": "Fast setup",
                 "flow.title": "Add subscriptions without friction.",
                 "flow.text": "Start with quick suggestions or add a service manually. Trackle keeps the interface calm and focused while you enter only what matters.",
@@ -1140,12 +1156,12 @@
                 "ai.b1": "Análisis en el dispositivo",
                 "ai.b2": "Preguntas rápidas predefinidas",
                 "ai.b3": "Sin enviar datos financieros a servidores externos",
-                "widgets.kicker": "Widgets de Trackle",
-                "widgets.title": "Gastos y renovaciones de un vistazo.",
-                "widgets.text": "Pon el gasto mensual, presupuesto restante y próximas renovaciones directamente en tu pantalla de inicio.",
-                "widgets.b1": "Widgets pequeños y medianos",
-                "widgets.b2": "Logos, precios y días restantes",
-                "widgets.b3": "Funciona en modo claro y oscuro",
+                "widgets.kicker": "Tu panel",
+                "widgets.title": "Todo bajo control de un vistazo.",
+                "widgets.text": "Consulta el gasto mensual, las próximas renovaciones y todas tus suscripciones activas desde un panel claro y ordenado.",
+                "widgets.b1": "Total mensual y suscripciones activas",
+                "widgets.b2": "Próximas renovaciones con iconos a todo color",
+                "widgets.b3": "Widgets para tu pantalla de inicio",
                 "flow.kicker": "Configuración rápida",
                 "flow.title": "Añade suscripciones sin fricción.",
                 "flow.text": "Empieza con sugerencias rápidas o añade un servicio manualmente. Trackle mantiene la interfaz calmada y enfocada.",
@@ -1170,6 +1186,10 @@
             document.querySelectorAll("[data-i18n]").forEach((node) => {
                 const key = node.getAttribute("data-i18n");
                 if (dictionary[key]) node.textContent = dictionary[key];
+            });
+            document.querySelectorAll("[data-localized-image]").forEach((image) => {
+                const source = image.dataset[lang === "es" ? "srcEs" : "srcEn"];
+                if (source) image.src = source;
             });
             document.querySelectorAll("[data-lang]").forEach((button) => {
                 button.classList.toggle("active", button.dataset.lang === lang);
