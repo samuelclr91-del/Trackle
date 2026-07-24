@@ -277,65 +277,99 @@
         }
 
         .apps-board {
-            justify-self: stretch;
+            justify-self: center;
             display: grid;
-            gap: 16px;
-            width: min(520px, 100%);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            width: min(360px, 100%);
+            padding: 24px;
+            border: 1px solid rgba(8, 9, 12, 0.07);
+            border-radius: 34px;
+            background: rgba(255, 255, 255, 0.66);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
         }
 
         .app-card {
             display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 16px;
-            align-items: center;
-            padding: 18px;
-            border: 1px solid var(--line);
+            justify-items: center;
+            gap: 11px;
+            padding: 14px 10px 12px;
             border-radius: 24px;
-            background: rgba(255, 255, 255, 0.82);
-            box-shadow: var(--shadow-soft);
+            color: var(--ink);
+            transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+        }
+
+        .app-card:hover,
+        .app-card:focus-visible {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 14px 30px rgba(15, 35, 70, 0.09);
+        }
+
+        .app-card:focus-visible,
+        .directory-app:focus-visible,
+        .social-icon:focus-visible {
+            outline: 3px solid rgba(22, 119, 255, 0.28);
+            outline-offset: 3px;
         }
 
         .app-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 18px;
+            width: 88px;
+            height: 88px;
+            border-radius: 22px;
             object-fit: cover;
             box-shadow: 0 12px 30px rgba(15, 35, 70, 0.14);
         }
 
-        .app-meta {
-            min-width: 0;
-        }
-
-        .app-meta h2 {
-            font-size: 28px;
-            line-height: 1.05;
-            letter-spacing: -0.035em;
-        }
-
-        .app-meta p {
-            margin-top: 6px;
-            color: var(--muted);
+        .app-name {
             font-size: 15px;
-            line-height: 1.45;
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 34px;
-            padding: 0 12px;
-            border-radius: 999px;
-            color: #095ed0;
-            background: rgba(22, 119, 255, 0.09);
-            font-size: 12px;
-            font-weight: 900;
-            white-space: nowrap;
+            font-weight: 850;
+            letter-spacing: -0.02em;
         }
 
         .apps-section {
             padding-top: 46px;
+        }
+
+        .app-directory {
+            display: flex;
+            align-items: flex-start;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+
+        .directory-app {
+            display: grid;
+            width: 112px;
+            justify-items: center;
+            gap: 11px;
+            padding: 12px;
+            border-radius: 24px;
+            color: var(--ink);
+            text-align: center;
+            transition: transform 180ms ease, background 180ms ease;
+        }
+
+        .directory-app:hover,
+        .directory-app:focus-visible {
+            transform: translateY(-3px);
+            background: rgba(22, 119, 255, 0.06);
+        }
+
+        .directory-app img {
+            width: 82px;
+            height: 82px;
+            border-radius: 21px;
+            object-fit: cover;
+            box-shadow: 0 12px 28px rgba(15, 35, 70, 0.13);
+        }
+
+        .directory-app span {
+            font-size: 14px;
+            font-weight: 850;
+            letter-spacing: -0.02em;
         }
 
         .trackle-detail {
@@ -571,7 +605,7 @@
             max-width: 1160px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-template-columns: 1.45fr 0.8fr 1fr 0.9fr;
             gap: 30px;
             color: var(--muted);
             font-size: 14px;
@@ -599,6 +633,48 @@
 
         .footer-col a:hover {
             color: var(--blue);
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .footer-col .social-icon {
+            display: inline-grid;
+            width: 42px;
+            height: 42px;
+            margin: 0;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            background: white;
+            box-shadow: 0 8px 22px rgba(15, 35, 70, 0.08);
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .footer-col .social-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(15, 35, 70, 0.12);
+        }
+
+        .social-icon img {
+            width: 27px;
+            height: 27px;
+            object-fit: contain;
+        }
+
+        .social-icon.threads {
+            border-color: #111;
+            background: #111;
+        }
+
+        .social-icon.threads img {
+            width: 25px;
+            height: 25px;
         }
 
         .copyright {
@@ -717,13 +793,25 @@
             .feature-strip,
             .gallery,
             .ai-grid,
-            .app-card,
             .footer-inner {
                 grid-template-columns: 1fr;
             }
 
-            .app-card {
-                justify-items: start;
+            .apps-board {
+                width: min(300px, 100%);
+                gap: 10px;
+                padding: 18px;
+            }
+
+            .app-icon {
+                width: 76px;
+                height: 76px;
+                border-radius: 19px;
+            }
+
+            .app-directory {
+                justify-content: center;
+                gap: 18px;
             }
 
             .copy-card {
@@ -795,22 +883,14 @@
                     </div>
 
                     <div class="apps-board" aria-label="Featured apps">
-                        <article class="app-card">
+                        <a class="app-card" href="#trackle" aria-label="View Trackle details">
                             <img class="app-icon" src="./assets/trackle-logo.png" alt="">
-                            <div class="app-meta">
-                                <h2>Trackle</h2>
-                                <p data-i18n="apps.trackle.text">Subscriptions, renewals, widgets and spending insights in one private dashboard.</p>
-                            </div>
-                            <a class="status-pill" href="#trackle" data-i18n="apps.open">Open</a>
-                        </article>
-                        <article class="app-card">
+                            <span class="app-name">Trackle</span>
+                        </a>
+                        <a class="app-card" href="./bezly/" aria-label="View Bezly details">
                             <img class="app-icon" src="./assets/bezly-logo.png" alt="">
-                            <div class="app-meta">
-                                <h2>Bezly</h2>
-                                <p data-i18n="apps.bezly.text">The next clr91dev app. Its space is ready here as the product grows.</p>
-                            </div>
-                            <a class="status-pill" href="./bezly/" data-i18n="apps.open">Open</a>
-                        </article>
+                            <span class="app-name">Bezly</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -822,19 +902,15 @@
                         <h2 data-i18n="apps.title">One page for every app I launch.</h2>
                         <p data-i18n="apps.text">Use this page as the central place to discover, open and learn about each clr91dev project.</p>
                     </div>
-                    <div class="feature-strip">
-                        <article class="pill-card">
-                            <strong>Trackle</strong>
-                            <p data-i18n="apps.trackle.long">Manage subscriptions, recurring charges and renewal calendars from your iPhone.</p>
-                        </article>
-                        <article class="pill-card" id="bezly">
-                            <strong>Bezly</strong>
-                            <p data-i18n="apps.bezly.long">Create App Store mockups, device-frame videos and launch visuals from your iPhone.</p>
-                        </article>
-                        <article class="pill-card">
-                            <strong data-i18n="apps.future.title">Future apps</strong>
-                            <p data-i18n="apps.future.text">New projects can be added here without rebuilding the whole site from scratch.</p>
-                        </article>
+                    <div class="app-directory" aria-label="All apps">
+                        <a class="directory-app" href="#trackle" aria-label="View Trackle details">
+                            <img src="./assets/trackle-logo.png" alt="">
+                            <span>Trackle</span>
+                        </a>
+                        <a class="directory-app" id="bezly" href="./bezly/" aria-label="View Bezly details">
+                            <img src="./assets/bezly-logo.png" alt="">
+                            <span>Bezly</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -998,10 +1074,21 @@
                     <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener">App Store</a>
                 </div>
                 <div class="footer-col">
+                    <h3 data-i18n="footer.contact">Contact</h3>
+                    <a href="mailto:clr91dev@gmail.com">clr91dev@gmail.com</a>
+                    <div class="social-links" aria-label="Social media">
+                        <a class="social-icon instagram" href="https://www.instagram.com/clr91dev/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de clr91dev" title="Instagram">
+                            <img src="./assets/instagram.png" alt="">
+                        </a>
+                        <a class="social-icon threads" href="https://www.threads.com/@clr91dev" target="_blank" rel="noopener noreferrer" aria-label="Threads de clr91dev" title="Threads">
+                            <img src="./assets/threads.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
                     <h3 data-i18n="footer.legal">Legal</h3>
                     <a href="./privacy/" data-i18n="footer.privacy">Privacy Policy</a>
                     <a href="./terms/" data-i18n="footer.terms">Terms of Use</a>
-                    <a href="mailto:clr91dev@gmail.com">clr91dev@gmail.com</a>
                 </div>
             </div>
             <div class="copyright">© 2026 clr91dev</div>
@@ -1082,6 +1169,7 @@
                 "cta.button": "Open App Store",
                 "footer.text": "Independent iPhone apps built by clr91dev.",
                 "footer.product": "Apps",
+                "footer.contact": "Contact",
                 "footer.legal": "Legal",
                 "footer.privacy": "Privacy Policy",
                 "footer.terms": "Terms of Use"
@@ -1158,6 +1246,7 @@
                 "cta.button": "Abrir App Store",
                 "footer.text": "Apps independientes para iPhone creadas por clr91dev.",
                 "footer.product": "Apps",
+                "footer.contact": "Contacto",
                 "footer.legal": "Legal",
                 "footer.privacy": "Política de privacidad",
                 "footer.terms": "Términos de uso"
