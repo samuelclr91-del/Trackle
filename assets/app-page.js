@@ -1,0 +1,50 @@
+(() => {
+    const translations = window.PAGE_TRANSLATIONS || {};
+    const supported = Object.keys(translations);
+    let currentLanguage = "en";
+
+    function initialLanguage() {
+        try {
+            const saved = localStorage.getItem("clr91dev-site-language");
+            if (supported.includes(saved)) return saved;
+        } catch (_) {}
+
+        const browserLanguage = (navigator.language || "en").toLowerCase();
+        const shortLanguage = browserLanguage.split("-")[0];
+        return supported.includes(shortLanguage) ? shortLanguage : "en";
+    }
+
+    function applyLanguage(language) {
+        if (!supported.includes(language)) return;
+        currentLanguage = language;
+        document.documentElement.lang = language;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+            const key = element.dataset.i18n;
+            if (translations[language]?.[key]) {
+                element.textContent = translations[language][key];
+            }
+        });
+
+        document.querySelectorAll("[data-localized-image]").forEach((image) => {
+            const localizedSource = image.dataset[`src${language[0].toUpperCase()}${language.slice(1)}`];
+            if (localizedSource) image.src = localizedSource;
+        });
+
+        document.querySelectorAll("[data-lang]").forEach((button) => {
+            const active = button.dataset.lang === language;
+            button.classList.toggle("active", active);
+            button.setAttribute("aria-pressed", String(active));
+        });
+
+        try {
+            localStorage.setItem("clr91dev-site-language", language);
+        } catch (_) {}
+    }
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+    });
+
+    applyLanguage(initialLanguage());
+})();

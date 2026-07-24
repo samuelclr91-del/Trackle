@@ -11,7 +11,7 @@
     <meta property="og:description" content="Focused, private tools for everyday life.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://samuelclr91-del.github.io/Trackle/">
-    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/samuel-header.jpg">
+    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/clr91dev-header-4k.jpg">
 
     <link rel="icon" type="image/png" href="./assets/clr91dev-mark-v2.png">
     <link rel="apple-touch-icon" href="./assets/clr91dev-mark-v2.png">
@@ -185,7 +185,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center 62%;
         }
 
         .intro,
@@ -468,6 +468,10 @@
             font-size: 12px;
         }
 
+        .copyright a {
+            border-bottom: 1px solid currentColor;
+        }
+
         @media (max-width: 900px) {
             .header-inner {
                 padding: 0 20px;
@@ -603,11 +607,11 @@
     </header>
 
     <main>
-        <section class="hero" id="home" aria-label="Samuel's photography">
+        <section class="hero" id="home" aria-label="Iceland landscape">
             <img
                 class="hero-image"
-                src="./assets/samuel-header.jpg"
-                alt="Colorful Nordic houses with an airplane in flight"
+                src="./assets/clr91dev-header-4k.jpg"
+                alt="Vestrahorn mountain and black sand beach in Iceland"
             >
         </section>
 
@@ -631,10 +635,10 @@
         <section class="project-grid" aria-label="Apps">
             <article class="project project-trackle" id="trackle">
                 <div class="project-copy">
-                    <span>01 · iPhone</span>
+                    <span data-i18n="trackle.status">01 · Available on App Store</span>
                     <h2>Trackle</h2>
                     <p data-i18n="trackle.text">Subscriptions, renewals and spending insights in one clear private dashboard.</p>
-                    <a class="project-link" href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" data-i18n="trackle.link">View on App Store</a>
+                    <a class="project-link" href="./trackle/" data-i18n="trackle.link">Explore Trackle</a>
                 </div>
                 <img
                     class="project-art"
@@ -649,7 +653,7 @@
 
             <article class="project project-bezly">
                 <div class="project-copy">
-                    <span>02 · iPhone</span>
+                    <span data-i18n="bezly.status">02 · Available on App Store</span>
                     <h2>Bezly</h2>
                     <p data-i18n="bezly.text">Create polished device mockups, videos and launch assets directly from your iPhone.</p>
                     <a class="project-link" href="./bezly/" data-i18n="bezly.link">Explore Bezly</a>
@@ -700,9 +704,8 @@
             </div>
             <div class="footer-column">
                 <h3 data-i18n="footer.apps">Apps</h3>
-                <a href="#trackle">Trackle</a>
+                <a href="./trackle/">Trackle</a>
                 <a href="./bezly/">Bezly</a>
-                <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener">App Store</a>
             </div>
             <div class="footer-column">
                 <h3 data-i18n="footer.contact">Contact</h3>
@@ -711,7 +714,7 @@
                 <a href="./terms/" data-i18n="footer.terms">Terms of Use</a>
             </div>
         </div>
-        <div class="copyright">© 2026 clr91dev</div>
+        <div class="copyright">© 2026 clr91dev · <a href="https://unsplash.com/photos/a-black-sand-beach-meets-the-ocean-and-mountains-JIvq1eW9jUg" target="_blank" rel="noopener">Photo by Jonas Degener</a></div>
     </footer>
 
     <script>
@@ -726,8 +729,10 @@
                 "about.label": "About",
                 "about.title": "Samuel, independent iOS developer.",
                 "about.text": "I design and build apps that combine useful ideas with calm interfaces. clr91dev is where I bring those projects together and share each new release.",
+                "trackle.status": "01 · Available on App Store",
                 "trackle.text": "Subscriptions, renewals and spending insights in one clear private dashboard.",
-                "trackle.link": "View on App Store",
+                "trackle.link": "Explore Trackle",
+                "bezly.status": "02 · Available on App Store",
                 "bezly.text": "Create polished device mockups, videos and launch assets directly from your iPhone.",
                 "bezly.link": "Explore Bezly",
                 "features.label": "Inside Trackle",
@@ -756,8 +761,10 @@
                 "about.label": "Sobre mí",
                 "about.title": "Samuel, desarrollador iOS independiente.",
                 "about.text": "Diseño y desarrollo apps que combinan ideas útiles con interfaces tranquilas. clr91dev es el lugar donde reúno estos proyectos y comparto cada nuevo lanzamiento.",
+                "trackle.status": "01 · Disponible en App Store",
                 "trackle.text": "Suscripciones, renovaciones y estadísticas de gasto en un panel privado y claro.",
-                "trackle.link": "Ver en App Store",
+                "trackle.link": "Explorar Trackle",
+                "bezly.status": "02 · Disponible en App Store",
                 "bezly.text": "Crea mockups de dispositivos, vídeos y recursos de lanzamiento directamente desde tu iPhone.",
                 "bezly.link": "Explorar Bezly",
                 "features.label": "Dentro de Trackle",

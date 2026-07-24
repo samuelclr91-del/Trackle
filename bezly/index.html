@@ -1,284 +1,245 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f7f6">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bezly — App mockups, made on iPhone</title>
-    <meta name="description" content="Create polished App Store screenshots, social assets and device-frame videos privately on your iPhone.">
+    <meta name="description" content="Create polished App Store screenshots, social assets and device-frame videos privately on your iPhone with Bezly.">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://samuelclr91-del.github.io/Trackle/bezly/">
-    <meta property="og:type" content="website">
+
     <meta property="og:title" content="Bezly — App mockups, made on iPhone">
-    <meta property="og:description" content="Create polished App Store screenshots, social assets and device-frame videos privately on your iPhone.">
+    <meta property="og:description" content="Create polished launch assets from a focused, private editor on iPhone.">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://samuelclr91-del.github.io/Trackle/bezly/">
-    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/bezly-logo.png">
-    <link rel="icon" href="../assets/bezly-logo.png">
-    <link rel="stylesheet" href="./index.css">
+    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/bezly/assets/bezly-app-icon.jpg">
+
+    <link rel="icon" type="image/jpeg" href="./assets/bezly-app-icon.jpg">
+    <link rel="apple-touch-icon" href="./assets/bezly-app-icon.jpg">
+    <link rel="stylesheet" href="../assets/app-page.css">
 </head>
-<body>
+<body class="bezly-page">
     <header class="site-header">
-        <nav class="nav-shell" aria-label="Primary navigation">
-            <a class="brand" href="../" aria-label="Bezly home">
-                <img src="../assets/bezly-logo.png" alt="">
-                <span>Bezly</span>
+        <div class="header-inner">
+            <a class="brand" href="../" aria-label="Back to clr91dev">
+                <img src="../assets/clr91dev-mark-v2.png" alt="">
+                <span class="wordmark"><span>clr91</span><span>dev</span></span>
             </a>
-            <div class="nav-links">
-                <a href="#features" data-i18n="nav.features">Features</a>
-                <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
-                <a href="#plans" data-i18n="nav.plans">Plans</a>
-                <a href="./support/" data-i18n="nav.support">Support</a>
-            </div>
-            <div class="nav-actions">
-                <div class="language-switch" aria-label="Language">
-                    <button class="active" type="button" data-language="en">EN</button>
-                    <button type="button" data-language="es">ES</button>
+
+            <div class="header-actions">
+                <a class="back-link" href="../">
+                    <span class="arrow" aria-hidden="true">←</span>
+                    <span data-i18n="nav.back">Back to portfolio</span>
+                </a>
+                <div class="language" aria-label="Language">
+                    <button class="active" data-lang="en" aria-pressed="true">EN</button>
+                    <button data-lang="es" aria-pressed="false">ES</button>
                 </div>
-                <span class="release-pill" data-i18n="nav.status">Coming soon</span>
             </div>
-        </nav>
+        </div>
     </header>
 
     <main>
-        <section class="hero section-shell">
-            <div class="hero-copy">
+        <section class="app-hero">
+            <div class="app-heading">
+                <div class="app-identity">
+                    <img class="app-icon" src="./assets/bezly-app-icon.jpg" alt="Bezly">
+                    <div>
+                        <div class="app-name">Bezly</div>
+                        <div class="availability" data-i18n="hero.available">Available on the App Store</div>
+                    </div>
+                </div>
+
                 <p class="eyebrow" data-i18n="hero.eyebrow">Mockups without the desktop detour</p>
                 <h1 data-i18n="hero.title">Your app deserves a better frame.</h1>
-                <p class="hero-lead" data-i18n="hero.text">Turn screenshots and videos into polished launch assets from a focused, private editor on iPhone.</p>
+                <p class="hero-summary" data-i18n="hero.summary">Turn screenshots and videos into polished launch assets from a focused, private editor built for iPhone.</p>
+
                 <div class="hero-actions">
-                    <a class="primary-button" href="#preview" data-i18n="hero.primary">See Bezly in action</a>
-                    <a class="text-button" href="#features" data-i18n="hero.secondary">Explore features <span aria-hidden="true">→</span></a>
-                </div>
-                <div class="trust-list" aria-label="Highlights">
-                    <span data-i18n="hero.trust1">On-device</span>
-                    <span data-i18n="hero.trust2">App Store sizes</span>
-                    <span data-i18n="hero.trust3">Photo & video</span>
+                    <a class="button button-primary" href="https://apps.apple.com/app/id6793517767" target="_blank" rel="noopener" data-i18n="hero.download">Download on the App Store</a>
+                    <a class="button button-secondary" href="#screens" data-i18n="hero.screens">See real app screens</a>
                 </div>
             </div>
 
-            <div class="hero-stage" id="preview" aria-label="Bezly app preview">
-                <div class="stage-glow stage-glow-one"></div>
-                <div class="stage-glow stage-glow-two"></div>
-                <figure class="device-card device-card-main">
-                    <img src="./assets/bezly-device-start.jpg" alt="Bezly device selection screen" fetchpriority="high">
-                </figure>
-                <figure class="device-card device-card-secondary">
-                    <img src="./assets/bezly-animation-setup.jpg" alt="Bezly editor setup screen" fetchpriority="high">
-                </figure>
-                <div class="floating-note floating-note-top">
-                    <span class="note-dot"></span>
-                    <strong data-i18n="preview.note1">App Store ready</strong>
-                </div>
-                <div class="floating-note floating-note-bottom">
-                    <strong>1320 × 2868</strong>
-                    <span data-i18n="preview.note2">Opaque PNG</span>
-                </div>
-            </div>
+            <figure class="hero-preview">
+                <img src="./assets/bezly-animation-setup.jpg" alt="Bezly animation editor" fetchpriority="high">
+            </figure>
         </section>
 
-        <section class="proof-strip" aria-label="Product facts">
-            <div class="proof-item">
-                <strong>5</strong>
-                <span data-i18n="proof.free">free exports</span>
-            </div>
-            <div class="proof-item">
-                <strong>100%</strong>
-                <span data-i18n="proof.local">local processing</span>
-            </div>
-            <div class="proof-item">
-                <strong>PNG · JPG · MP4</strong>
-                <span data-i18n="proof.formats">ready to share</span>
-            </div>
-            <div class="proof-item">
-                <strong>iPhone · iPad · Mac</strong>
-                <span data-i18n="proof.devices">and more frames</span>
-            </div>
+        <section class="app-facts" aria-label="Bezly details">
+            <article class="fact">
+                <span data-i18n="facts.platform.label">Platform</span>
+                <strong data-i18n="facts.platform.value">iPhone & iPad</strong>
+            </article>
+            <article class="fact">
+                <span data-i18n="facts.focus.label">Create</span>
+                <strong data-i18n="facts.focus.value">App Store images & video</strong>
+            </article>
+            <article class="fact">
+                <span data-i18n="facts.privacy.label">Privacy</span>
+                <strong data-i18n="facts.privacy.value">Processed on your device</strong>
+            </article>
         </section>
 
-        <section class="content-section section-shell" id="features">
-            <div class="section-heading">
-                <p class="eyebrow" data-i18n="features.eyebrow">Made for shipping</p>
-                <h2 data-i18n="features.title">Everything you need. Nothing in the way.</h2>
-                <p data-i18n="features.text">Start quickly, refine the details and export at the right size without moving your work to a computer.</p>
-            </div>
+        <section class="editorial">
+            <p class="section-label" data-i18n="features.label">A complete mobile studio</p>
+            <h2 data-i18n="features.title">From raw screenshot to launch-ready asset.</h2>
 
-            <div class="bento-grid">
-                <article class="feature-card feature-card-large feature-gradient">
-                    <div class="feature-copy">
-                        <span class="feature-index">01</span>
-                        <h3 data-i18n="features.one.title">Start from a template</h3>
-                        <p data-i18n="features.one.text">Use App Store, Story, square and vertical presets, or begin with a completely custom canvas.</p>
-                    </div>
-                    <div class="template-stack" aria-hidden="true">
-                        <div class="template-chip active">App Store</div>
-                        <div class="template-chip">9:16</div>
-                        <div class="template-chip">4:5</div>
-                        <div class="template-chip">1:1</div>
-                    </div>
+            <div class="feature-list">
+                <article class="feature-row">
+                    <span>01</span>
+                    <h3 data-i18n="features.one.title">Choose the right device</h3>
+                    <p data-i18n="features.one.text">Create with iPhone, iPad, Mac, Apple Watch and Apple TV frames from one focused starting point.</p>
                 </article>
-
-                <article class="feature-card feature-card-dark">
-                    <span class="feature-index">02</span>
-                    <h3 data-i18n="features.two.title">Frames that feel real</h3>
-                    <p data-i18n="features.two.text">Choose current Apple devices, precise finishes and a clean status bar that matches your composition.</p>
-                    <div class="status-preview" aria-hidden="true">
-                        <span>9:41</span>
-                        <span>●●●  Wi‑Fi  ▰</span>
-                    </div>
+                <article class="feature-row">
+                    <span>02</span>
+                    <h3 data-i18n="features.two.title">Compose every detail</h3>
+                    <p data-i18n="features.two.text">Adjust size, position, spacing, orientation and status-bar details directly on your canvas.</p>
                 </article>
-
-                <article class="feature-card">
-                    <span class="feature-index">03</span>
-                    <h3 data-i18n="features.three.title">Backgrounds, simplified</h3>
-                    <p data-i18n="features.three.text">Pick a quiet solid, a curated gradient, an image or an adaptive palette taken from your screenshot.</p>
-                    <div class="swatches" aria-hidden="true">
-                        <span style="--swatch:#e8eef5"></span>
-                        <span style="--swatch:#eddcd0"></span>
-                        <span style="--swatch:#d7e9e7"></span>
-                        <span style="--swatch:#ded8e9"></span>
-                    </div>
+                <article class="feature-row">
+                    <span>03</span>
+                    <h3 data-i18n="features.three.title">Design the backdrop</h3>
+                    <p data-i18n="features.three.text">Use solid colors, gradients, images or wallpaper treatments built for polished presentation.</p>
                 </article>
-
-                <article class="feature-card feature-card-wide">
-                    <div class="feature-copy">
-                        <span class="feature-index">04</span>
-                        <h3 data-i18n="features.four.title">Export with confidence</h3>
-                        <p data-i18n="features.four.text">Bezly prepares accepted App Store dimensions, removes transparency when required and supports polished MP4 mockups.</p>
-                    </div>
-                    <div class="export-list" aria-hidden="true">
-                        <div><span>iPhone</span><strong>1320 × 2868</strong></div>
-                        <div><span>iPad</span><strong>2064 × 2752</strong></div>
-                        <div><span>Story</span><strong>1080 × 1920</strong></div>
-                    </div>
+                <article class="feature-row">
+                    <span>04</span>
+                    <h3 data-i18n="features.four.title">Export with confidence</h3>
+                    <p data-i18n="features.four.text">Create App Store-ready images and high-quality video mockups while your files remain on your device.</p>
                 </article>
             </div>
         </section>
 
-        <section class="privacy-section" id="privacy">
-            <div class="section-shell privacy-grid">
-                <div class="privacy-copy">
-                    <p class="eyebrow" data-i18n="privacy.eyebrow">Privacy by default</p>
-                    <h2 data-i18n="privacy.title">Your screenshots stay yours.</h2>
-                    <p data-i18n="privacy.text">Images and videos are rendered on your device. Bezly does not upload your creative assets to its own servers and does not use them for tracking.</p>
-                    <a class="text-button" href="./privacy/" data-i18n="privacy.link">Read the privacy policy <span aria-hidden="true">→</span></a>
+        <section class="gallery" id="screens">
+            <div class="gallery-inner">
+                <div class="gallery-header">
+                    <p class="section-label" data-i18n="gallery.label">Real app screens</p>
+                    <h2 data-i18n="gallery.title">A focused editor, directly on iPhone.</h2>
                 </div>
-                <div class="privacy-points">
-                    <div><span aria-hidden="true">✓</span><p data-i18n="privacy.point1">Local rendering and temporary files</p></div>
-                    <div><span aria-hidden="true">✓</span><p data-i18n="privacy.point2">No account required</p></div>
-                    <div><span aria-hidden="true">✓</span><p data-i18n="privacy.point3">Purchases handled securely by Apple</p></div>
+
+                <div class="gallery-grid">
+                    <article class="gallery-card">
+                        <div class="gallery-media">
+                            <img src="./assets/bezly-device-start.jpg" alt="Bezly device selection screen" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3 data-i18n="gallery.one">Choose a device</h3>
+                            <span>01</span>
+                        </div>
+                    </article>
+
+                    <article class="gallery-card">
+                        <div class="gallery-media">
+                            <img src="./assets/bezly-animation-setup.jpg" alt="Bezly animation setup screen" loading="lazy">
+                        </div>
+                        <div class="gallery-caption">
+                            <h3 data-i18n="gallery.two">Configure and animate</h3>
+                            <span>02</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="content-section section-shell" id="plans">
-            <div class="plans-card">
-                <div>
-                    <p class="eyebrow" data-i18n="plans.eyebrow">Try before Pro</p>
-                    <h2 data-i18n="plans.title">Five exports are on us.</h2>
-                    <p data-i18n="plans.text">Create and export five projects for free. Upgrade through the App Store whenever you want unlimited exports.</p>
-                </div>
-                <div class="plan-summary">
-                    <div>
-                        <span data-i18n="plans.free.label">Free</span>
-                        <strong data-i18n="plans.free.value">5 exports</strong>
-                    </div>
-                    <div>
-                        <span>Bezly Pro</span>
-                        <strong data-i18n="plans.pro.value">Unlimited</strong>
-                    </div>
-                    <small data-i18n="plans.note">Monthly and annual options. Prices are shown in the app by Apple.</small>
-                </div>
-            </div>
-        </section>
-
-        <section class="closing-section section-shell">
-            <div class="closing-card">
-                <img src="../assets/bezly-logo.png" alt="Bezly">
-                <p class="eyebrow" data-i18n="closing.eyebrow">Built by clr91dev</p>
-                <h2 data-i18n="closing.title">Make the frame as thoughtful as the app.</h2>
-                <p data-i18n="closing.text">Bezly is preparing for its first App Store release.</p>
-                <span class="release-pill release-pill-light" data-i18n="nav.status">Coming soon</span>
+        <section class="home-return">
+            <div>
+                <p class="section-label" data-i18n="return.label">More by clr91dev</p>
+                <h2 data-i18n="return.title">Return to the portfolio and discover Trackle.</h2>
+                <a href="../"><span aria-hidden="true">←</span><span data-i18n="return.link">Back to clr91dev</span></a>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-shell">
+    <footer>
+        <div class="footer-inner">
             <div>
                 <a class="brand" href="../">
-                    <img src="../assets/bezly-logo.png" alt="">
-                    <span>Bezly</span>
+                    <img src="../assets/clr91dev-mark-v2.png" alt="">
+                    <span class="wordmark"><span>clr91</span><span>dev</span></span>
                 </a>
-                <p data-i18n="footer.text">Private mockups and launch assets, made on iPhone.</p>
+                <p class="footer-copy" data-i18n="footer.text">Independent iPhone apps built with clarity, privacy and thoughtful design.</p>
             </div>
-            <div class="footer-links">
+            <nav class="footer-links" aria-label="Footer">
+                <a href="../" data-i18n="footer.home">Portfolio</a>
+                <a href="../trackle/">Trackle</a>
                 <a href="./privacy/" data-i18n="footer.privacy">Privacy</a>
                 <a href="./terms/" data-i18n="footer.terms">Terms</a>
                 <a href="./support/" data-i18n="footer.support">Support</a>
-                <a href="mailto:clr91dev@gmail.com">clr91dev@gmail.com</a>
-            </div>
+            </nav>
         </div>
-        <p class="copyright">© 2026 clr91dev</p>
+        <div class="copyright">© 2026 clr91dev · Bezly</div>
     </footer>
 
     <script>
-        const translations = {
+        window.PAGE_TRANSLATIONS = {
             en: {
-                "nav.features": "Features", "nav.privacy": "Privacy", "nav.plans": "Plans", "nav.support": "Support", "nav.status": "Coming soon",
-                "hero.eyebrow": "Mockups without the desktop detour", "hero.title": "Your app deserves a better frame.", "hero.text": "Turn screenshots and videos into polished launch assets from a focused, private editor on iPhone.", "hero.primary": "See Bezly in action", "hero.secondary": "Explore features →", "hero.trust1": "On-device", "hero.trust2": "App Store sizes", "hero.trust3": "Photo & video",
-                "preview.note1": "App Store ready", "preview.note2": "Opaque PNG",
-                "proof.free": "free exports", "proof.local": "local processing", "proof.formats": "ready to share", "proof.devices": "and more frames",
-                "features.eyebrow": "Made for shipping", "features.title": "Everything you need. Nothing in the way.", "features.text": "Start quickly, refine the details and export at the right size without moving your work to a computer.",
-                "features.one.title": "Start from a template", "features.one.text": "Use App Store, Story, square and vertical presets, or begin with a completely custom canvas.",
-                "features.two.title": "Frames that feel real", "features.two.text": "Choose current Apple devices, precise finishes and a clean status bar that matches your composition.",
-                "features.three.title": "Backgrounds, simplified", "features.three.text": "Pick a quiet solid, a curated gradient, an image or an adaptive palette taken from your screenshot.",
-                "features.four.title": "Export with confidence", "features.four.text": "Bezly prepares accepted App Store dimensions, removes transparency when required and supports polished MP4 mockups.",
-                "privacy.eyebrow": "Privacy by default", "privacy.title": "Your screenshots stay yours.", "privacy.text": "Images and videos are rendered on your device. Bezly does not upload your creative assets to its own servers and does not use them for tracking.", "privacy.link": "Read the privacy policy →", "privacy.point1": "Local rendering and temporary files", "privacy.point2": "No account required", "privacy.point3": "Purchases handled securely by Apple",
-                "plans.eyebrow": "Try before Pro", "plans.title": "Five exports are on us.", "plans.text": "Create and export five projects for free. Upgrade through the App Store whenever you want unlimited exports.", "plans.free.label": "Free", "plans.free.value": "5 exports", "plans.pro.value": "Unlimited", "plans.note": "Monthly and annual options. Prices are shown in the app by Apple.",
-                "closing.eyebrow": "Built by clr91dev", "closing.title": "Make the frame as thoughtful as the app.", "closing.text": "Bezly is preparing for its first App Store release.",
-                "footer.text": "Private mockups and launch assets, made on iPhone.", "footer.privacy": "Privacy", "footer.terms": "Terms", "footer.support": "Support"
+                "nav.back": "Back to portfolio",
+                "hero.available": "Available on the App Store",
+                "hero.eyebrow": "Mockups without the desktop detour",
+                "hero.title": "Your app deserves a better frame.",
+                "hero.summary": "Turn screenshots and videos into polished launch assets from a focused, private editor built for iPhone.",
+                "hero.download": "Download on the App Store",
+                "hero.screens": "See real app screens",
+                "facts.platform.label": "Platform", "facts.platform.value": "iPhone & iPad",
+                "facts.focus.label": "Create", "facts.focus.value": "App Store images & video",
+                "facts.privacy.label": "Privacy", "facts.privacy.value": "Processed on your device",
+                "features.label": "A complete mobile studio",
+                "features.title": "From raw screenshot to launch-ready asset.",
+                "features.one.title": "Choose the right device",
+                "features.one.text": "Create with iPhone, iPad, Mac, Apple Watch and Apple TV frames from one focused starting point.",
+                "features.two.title": "Compose every detail",
+                "features.two.text": "Adjust size, position, spacing, orientation and status-bar details directly on your canvas.",
+                "features.three.title": "Design the backdrop",
+                "features.three.text": "Use solid colors, gradients, images or wallpaper treatments built for polished presentation.",
+                "features.four.title": "Export with confidence",
+                "features.four.text": "Create App Store-ready images and high-quality video mockups while your files remain on your device.",
+                "gallery.label": "Real app screens",
+                "gallery.title": "A focused editor, directly on iPhone.",
+                "gallery.one": "Choose a device",
+                "gallery.two": "Configure and animate",
+                "return.label": "More by clr91dev",
+                "return.title": "Return to the portfolio and discover Trackle.",
+                "return.link": "Back to clr91dev",
+                "footer.text": "Independent iPhone apps built with clarity, privacy and thoughtful design.",
+                "footer.home": "Portfolio",
+                "footer.privacy": "Privacy",
+                "footer.terms": "Terms",
+                "footer.support": "Support"
             },
             es: {
-                "nav.features": "Funciones", "nav.privacy": "Privacidad", "nav.plans": "Planes", "nav.support": "Soporte", "nav.status": "Próximamente",
-                "hero.eyebrow": "Mockups sin pasar por el ordenador", "hero.title": "Tu app merece un marco mejor.", "hero.text": "Convierte capturas y vídeos en assets de lanzamiento pulidos desde un editor privado y enfocado en el iPhone.", "hero.primary": "Ver Bezly en acción", "hero.secondary": "Explorar funciones →", "hero.trust1": "En el dispositivo", "hero.trust2": "Tamaños App Store", "hero.trust3": "Foto y vídeo",
-                "preview.note1": "Listo para App Store", "preview.note2": "PNG sin transparencia",
-                "proof.free": "exportaciones gratis", "proof.local": "procesamiento local", "proof.formats": "listos para compartir", "proof.devices": "y más dispositivos",
-                "features.eyebrow": "Hecho para publicar", "features.title": "Todo lo necesario. Nada que estorbe.", "features.text": "Empieza rápido, cuida los detalles y exporta al tamaño correcto sin trasladar el trabajo al ordenador.",
-                "features.one.title": "Empieza con una plantilla", "features.one.text": "Usa ajustes para App Store, Stories, cuadrados y verticales, o crea un lienzo totalmente personalizado.",
-                "features.two.title": "Marcos que se sienten reales", "features.two.text": "Elige dispositivos Apple actuales, acabados precisos y una barra de estado limpia que encaje con tu composición.",
-                "features.three.title": "Fondos, simplificados", "features.three.text": "Elige un color sólido, un degradado cuidado, una imagen o una paleta adaptada a tu captura.",
-                "features.four.title": "Exporta con confianza", "features.four.text": "Bezly prepara dimensiones admitidas por App Store, elimina la transparencia cuando hace falta y crea mockups MP4 pulidos.",
-                "privacy.eyebrow": "Privacidad desde el principio", "privacy.title": "Tus capturas siguen siendo tuyas.", "privacy.text": "Las imágenes y vídeos se procesan en tu dispositivo. Bezly no sube tus assets creativos a servidores propios ni los utiliza para seguimiento.", "privacy.link": "Leer la política de privacidad →", "privacy.point1": "Renderizado local y archivos temporales", "privacy.point2": "Sin cuenta obligatoria", "privacy.point3": "Compras gestionadas de forma segura por Apple",
-                "plans.eyebrow": "Pruébalo antes de Pro", "plans.title": "Las primeras cinco exportaciones corren de nuestra cuenta.", "plans.text": "Crea y exporta cinco proyectos gratis. Pásate a Pro desde App Store cuando quieras exportaciones ilimitadas.", "plans.free.label": "Gratis", "plans.free.value": "5 exportaciones", "plans.pro.value": "Ilimitadas", "plans.note": "Opciones mensual y anual. Apple muestra los precios dentro de la app.",
-                "closing.eyebrow": "Creado por clr91dev", "closing.title": "Cuida el marco tanto como cuidaste la app.", "closing.text": "Bezly se está preparando para su primer lanzamiento en App Store.",
-                "footer.text": "Mockups y assets de lanzamiento privados, creados en iPhone.", "footer.privacy": "Privacidad", "footer.terms": "Términos", "footer.support": "Soporte"
+                "nav.back": "Volver al portfolio",
+                "hero.available": "Disponible en App Store",
+                "hero.eyebrow": "Mockups sin pasar por el ordenador",
+                "hero.title": "Tu app merece un marco mejor.",
+                "hero.summary": "Convierte capturas y vídeos en recursos de lanzamiento pulidos desde un editor privado y enfocado creado para el iPhone.",
+                "hero.download": "Descargar en App Store",
+                "hero.screens": "Ver capturas reales",
+                "facts.platform.label": "Plataforma", "facts.platform.value": "iPhone y iPad",
+                "facts.focus.label": "Crea", "facts.focus.value": "Imágenes y vídeo para App Store",
+                "facts.privacy.label": "Privacidad", "facts.privacy.value": "Procesamiento en tu dispositivo",
+                "features.label": "Un estudio móvil completo",
+                "features.title": "De una captura sin editar a un recurso listo para publicar.",
+                "features.one.title": "Elige el dispositivo adecuado",
+                "features.one.text": "Crea con marcos de iPhone, iPad, Mac, Apple Watch y Apple TV desde un punto de partida claro.",
+                "features.two.title": "Compón cada detalle",
+                "features.two.text": "Ajusta tamaño, posición, separación, orientación y los detalles de la barra de estado directamente en el lienzo.",
+                "features.three.title": "Diseña el fondo",
+                "features.three.text": "Usa colores sólidos, degradados, imágenes o fondos de pantalla para conseguir una presentación cuidada.",
+                "features.four.title": "Exporta con confianza",
+                "features.four.text": "Crea imágenes listas para App Store y mockups de vídeo en alta calidad mientras tus archivos permanecen en tu dispositivo.",
+                "gallery.label": "Capturas reales de la app",
+                "gallery.title": "Un editor directo y enfocado, en el iPhone.",
+                "gallery.one": "Elige un dispositivo",
+                "gallery.two": "Configura y anima",
+                "return.label": "Más de clr91dev",
+                "return.title": "Vuelve al portfolio y descubre Trackle.",
+                "return.link": "Volver a clr91dev",
+                "footer.text": "Apps independientes para iPhone creadas con claridad, privacidad y un diseño cuidado.",
+                "footer.home": "Portfolio",
+                "footer.privacy": "Privacidad",
+                "footer.terms": "Términos",
+                "footer.support": "Soporte"
             }
         };
-
-        function applyLanguage(language) {
-            const dictionary = translations[language] || translations.en;
-            document.documentElement.lang = language;
-            document.querySelectorAll("[data-i18n]").forEach((element) => {
-                const value = dictionary[element.dataset.i18n];
-                if (value) element.textContent = value;
-            });
-            document.querySelectorAll("[data-language]").forEach((button) => {
-                button.classList.toggle("active", button.dataset.language === language);
-            });
-            try { localStorage.setItem("clr91dev-site-language", language); } catch (_) {}
-        }
-
-        function preferredLanguage() {
-            try {
-                const saved = localStorage.getItem("clr91dev-site-language");
-                if (saved === "en" || saved === "es") return saved;
-            } catch (_) {}
-            return (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
-        }
-
-        document.querySelectorAll("[data-language]").forEach((button) => {
-            button.addEventListener("click", () => applyLanguage(button.dataset.language));
-        });
-        applyLanguage(preferredLanguage());
     </script>
+    <script src="../assets/app-page.js"></script>
 </body>
 </html>
