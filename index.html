@@ -3,1210 +3,836 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clr91dev — Apps for iPhone</title>
-    <meta name="description" content="clr91dev is the home for apps built by Samuel, including Trackle and Bezly.">
-    <meta name="theme-color" content="#F6FAFF">
+    <title>clr91dev — Independent apps for iPhone</title>
+    <meta name="description" content="Independent iPhone apps by clr91dev. Discover Trackle and Bezly.">
+    <meta name="theme-color" content="#ffffff">
 
-    <meta property="og:title" content="clr91dev — Apps for iPhone">
-    <meta property="og:description" content="Discover apps by clr91dev, starting with Trackle and Bezly.">
+    <meta property="og:title" content="clr91dev — Independent apps for iPhone">
+    <meta property="og:description" content="Focused, private tools for everyday life.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://samuelclr91-del.github.io/Trackle/">
-    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/store/en/01-trackle-control.jpg">
+    <meta property="og:image" content="https://samuelclr91-del.github.io/Trackle/assets/samuel-header.jpg">
 
     <link rel="icon" type="image/png" href="./assets/clr91dev-mark.png">
     <link rel="apple-touch-icon" href="./assets/clr91dev-mark.png">
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
-            --ink: #08090c;
-            --muted: #666d7a;
-            --soft: #9098a5;
-            --blue: #1677ff;
-            --cyan: #67c9ff;
-            --green: #29c866;
-            --amber: #ffb23f;
-            --rose: #ff5f67;
+            --ink: #0a0a0a;
             --paper: #ffffff;
-            --wash: #f6f9fc;
-            --line: rgba(8, 9, 12, 0.09);
-            --shadow: 0 28px 80px rgba(15, 35, 70, 0.14);
-            --shadow-soft: 0 16px 44px rgba(15, 35, 70, 0.1);
+            --quiet: #727272;
+            --line: #ddddda;
+            --mint: #2ac6a8;
+            --navy: #0c1728;
+            --max: 1380px;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-            min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-            background:
-                linear-gradient(180deg, #f7fbff 0%, #ffffff 44%, #f6f8fb 100%);
+            background: var(--paper);
             color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
-            overflow-x: hidden;
         }
 
-        a { color: inherit; text-decoration: none; }
-        button { border: 0; background: none; font: inherit; cursor: pointer; }
-        img { max-width: 100%; display: block; }
-
-        .page {
+        body.menu-open {
             overflow: hidden;
         }
 
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 30;
-            backdrop-filter: blur(18px) saturate(160%);
-            -webkit-backdrop-filter: blur(18px) saturate(160%);
-            background: rgba(247, 251, 255, 0.82);
-            border-bottom: 1px solid rgba(8, 9, 12, 0.06);
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        .nav-inner {
-            max-width: 1160px;
+        button {
+            border: 0;
+            background: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .site-header {
+            position: relative;
+            z-index: 50;
+            height: 76px;
+            background: var(--paper);
+        }
+
+        .header-inner {
+            width: min(100%, var(--max));
+            height: 100%;
             margin: 0 auto;
-            padding: 14px 22px;
+            padding: 0 42px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 18px;
+            gap: 34px;
         }
 
         .brand {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            min-width: 0;
+            gap: 12px;
+            flex: none;
         }
 
         .brand img {
-            width: 36px;
-            height: 36px;
-            border-radius: 11px;
-            box-shadow: 0 10px 24px rgba(8, 18, 32, 0.18);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
         }
 
-        .brand span {
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
+        .wordmark {
+            display: grid;
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 0.82;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
         }
 
-        .nav-links {
+        .wordmark span:last-child {
+            letter-spacing: 0.16em;
+        }
+
+        .desktop-nav {
+            margin-left: auto;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: clamp(20px, 2.6vw, 38px);
         }
 
-        .nav-links a {
-            padding: 9px 12px;
-            border-radius: 10px;
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: 650;
+        .desktop-nav a,
+        .language button {
+            position: relative;
+            padding: 8px 0;
+            color: #292929;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
 
-        .nav-links a:hover {
-            color: var(--ink);
-            background: rgba(8, 9, 12, 0.05);
+        .desktop-nav a::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 3px;
+            left: 0;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .25s ease;
         }
 
-        .lang {
+        .desktop-nav a:hover::after,
+        .desktop-nav a:focus-visible::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .language {
             display: flex;
-            gap: 3px;
-            padding: 3px;
-            border-radius: 11px;
-            background: rgba(8, 9, 12, 0.055);
+            align-items: center;
+            gap: 10px;
+            padding-left: 8px;
         }
 
-        .lang button {
-            padding: 6px 10px;
-            border-radius: 8px;
-            color: var(--muted);
-            font-size: 12px;
-            font-weight: 800;
+        .language button {
+            color: #aaa;
         }
 
-        .lang button.active {
+        .language button.active {
             color: var(--ink);
-            background: var(--paper);
-            box-shadow: 0 6px 16px rgba(15, 35, 70, 0.08);
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
-        .app-button {
-            display: inline-flex;
+        .menu-button {
+            display: none;
+            width: 40px;
+            height: 40px;
             align-items: center;
             justify-content: center;
-            min-height: 44px;
-            padding: 0 18px;
-            border-radius: 14px;
-            color: white;
-            background: var(--ink);
-            font-size: 14px;
-            font-weight: 800;
-            box-shadow: 0 16px 34px rgba(8, 9, 12, 0.18);
-            transition: transform .18s ease, box-shadow .18s ease;
-            white-space: nowrap;
-        }
-
-        .app-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 22px 42px rgba(8, 9, 12, 0.22);
+            font-size: 20px;
         }
 
         .hero {
             position: relative;
-            padding: 70px 22px 54px;
+            height: clamp(300px, 33.333vw, 620px);
+            overflow: hidden;
+            background: #e9eef2;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: -120px -20vw auto;
-            height: 520px;
-            background: linear-gradient(135deg, rgba(103, 201, 255, 0.2), rgba(255, 178, 63, 0.14), transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-inner {
-            position: relative;
-            max-width: 1160px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 0.92fr 1.08fr;
-            gap: 46px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            margin-bottom: 22px;
-            padding: 7px 12px;
-            border: 1px solid rgba(22, 119, 255, 0.18);
-            border-radius: 999px;
-            background: rgba(22, 119, 255, 0.08);
-            color: #095ed0;
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 0 5px rgba(41, 200, 102, 0.12);
-        }
-
-        h1 {
-            max-width: 760px;
-            font-size: clamp(48px, 8vw, 98px);
-            line-height: 0.92;
-            letter-spacing: -0.065em;
-            font-weight: 900;
-        }
-
-        .hero-copy p {
-            max-width: 570px;
-            margin-top: 26px;
-            color: var(--muted);
-            font-size: clamp(18px, 2vw, 22px);
-            line-height: 1.46;
-        }
-
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .secondary-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            padding: 0 18px;
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.78);
-            color: var(--ink);
-            font-size: 14px;
-            font-weight: 800;
-        }
-
-        .trust-row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 22px;
-            color: var(--soft);
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .trust-row span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .trust-row span::before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--blue);
-        }
-
-        .hero-visual {
-            justify-self: center;
-            width: min(510px, 100%);
-            border-radius: 42px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(229,242,255,0.88));
-            padding: 14px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(8, 9, 12, 0.07);
-        }
-
-        .apps-board {
-            justify-self: stretch;
-            display: grid;
-            gap: 16px;
-            width: min(520px, 100%);
-        }
-
-        .app-card {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 16px;
-            align-items: center;
-            padding: 18px;
-            border: 1px solid var(--line);
-            border-radius: 24px;
-            background: rgba(255, 255, 255, 0.82);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .app-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 18px;
-            object-fit: cover;
-            box-shadow: 0 12px 30px rgba(15, 35, 70, 0.14);
-        }
-
-        .app-meta {
-            min-width: 0;
-        }
-
-        .app-meta h2 {
-            font-size: 28px;
-            line-height: 1.05;
-            letter-spacing: -0.035em;
-        }
-
-        .app-meta p {
-            margin-top: 6px;
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.45;
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 34px;
-            padding: 0 12px;
-            border-radius: 999px;
-            color: #095ed0;
-            background: rgba(22, 119, 255, 0.09);
-            font-size: 12px;
-            font-weight: 900;
-            white-space: nowrap;
-        }
-
-        .apps-section {
-            padding-top: 46px;
-        }
-
-        .trackle-detail {
-            padding-top: 70px;
-        }
-
-        .hero-visual img,
-        .shot img {
+        .hero-image {
             width: 100%;
-            height: auto;
-            border-radius: 32px;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
-        section {
-            padding: 82px 22px;
-        }
-
-        .section-inner {
-            max-width: 1160px;
+        .intro,
+        .about,
+        .feature-editorial,
+        .footer-inner {
+            width: min(100%, var(--max));
             margin: 0 auto;
+            padding-right: 42px;
+            padding-left: 42px;
         }
 
-        .section-head {
-            max-width: 770px;
-            margin-bottom: 38px;
+        .intro {
+            padding-top: clamp(100px, 12vw, 180px);
+            padding-bottom: clamp(100px, 12vw, 180px);
         }
 
-        .kicker {
-            margin-bottom: 12px;
-            color: var(--blue);
-            font-size: 13px;
-            font-weight: 900;
-            letter-spacing: 0.12em;
+        .section-label {
+            margin-bottom: 26px;
+            color: var(--quiet);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
         }
 
-        h2 {
-            font-size: clamp(34px, 5.4vw, 70px);
-            line-height: 0.98;
-            letter-spacing: -0.055em;
-            font-weight: 900;
+        .intro h1,
+        .feature-editorial h2 {
+            max-width: 1100px;
+            font-size: clamp(54px, 8vw, 118px);
+            line-height: .92;
+            letter-spacing: -.065em;
+            font-weight: 700;
         }
 
-        .section-head p {
-            max-width: 650px;
-            margin-top: 18px;
-            color: var(--muted);
-            font-size: 18px;
-            line-height: 1.55;
-        }
-
-        .feature-strip {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .pill-card {
-            min-height: 164px;
-            padding: 24px;
-            border-radius: 28px;
-            background: var(--paper);
-            border: 1px solid var(--line);
-            box-shadow: 0 12px 30px rgba(15, 35, 70, 0.055);
-        }
-
-        .pill-card strong {
-            display: block;
-            margin-bottom: 9px;
-            font-size: 20px;
-            letter-spacing: -0.03em;
-        }
-
-        .pill-card p {
-            color: var(--muted);
-            font-size: 15px;
-            line-height: 1.55;
-        }
-
-        .story {
-            display: grid;
-            grid-template-columns: 0.92fr 1.08fr;
-            gap: 46px;
-            align-items: center;
-        }
-
-        .story.reverse {
-            grid-template-columns: 1.08fr 0.92fr;
-        }
-
-        .copy-card {
-            padding: 32px;
-            border-radius: 32px;
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid var(--line);
-            box-shadow: 0 18px 48px rgba(15, 35, 70, 0.07);
-        }
-
-        .copy-card h2 {
-            font-size: clamp(34px, 5vw, 62px);
-        }
-
-        .copy-card p {
-            margin-top: 18px;
-            color: var(--muted);
-            font-size: 18px;
-            line-height: 1.55;
-        }
-
-        .copy-card ul {
-            list-style: none;
-            display: grid;
-            gap: 11px;
-            margin-top: 24px;
-        }
-
-        .copy-card li {
-            display: flex;
-            gap: 10px;
-            color: var(--ink);
-            font-size: 15px;
-            font-weight: 750;
-        }
-
-        .copy-card li::before {
-            content: "";
-            width: 9px;
-            height: 9px;
-            margin-top: 7px;
-            border-radius: 50%;
-            background: var(--green);
-            flex: none;
-        }
-
-        .shot {
-            width: min(430px, 100%);
-            margin: 0 auto;
-            border-radius: 42px;
-            padding: 12px;
-            border: 1px solid rgba(8, 9, 12, 0.07);
-            background: linear-gradient(135deg, #ffffff, #eef8ff);
-            box-shadow: var(--shadow);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        .gallery-card {
-            padding: 12px;
-            border-radius: 32px;
-            background: var(--paper);
-            border: 1px solid var(--line);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .gallery-card img {
-            border-radius: 24px;
-        }
-
-        .gallery-card p {
-            min-height: 52px;
-            padding: 15px 8px 6px;
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.35;
-            font-weight: 650;
-        }
-
-        .ai-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-            align-items: start;
-        }
-
-        .ai-grid .shot {
-            width: 100%;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .widgets-band {
-            position: relative;
-            overflow: hidden;
-            background:
-                linear-gradient(180deg, #ffffff 0%, #f2f6ff 100%);
-        }
-
-        .final {
-            padding-bottom: 110px;
-        }
-
-        .cta {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 24px;
-            align-items: center;
-            padding: 34px;
-            border-radius: 34px;
-            color: white;
-            background:
-                linear-gradient(135deg, #111827 0%, #1677ff 56%, #29c866 100%);
-            box-shadow: 0 28px 80px rgba(22, 119, 255, 0.22);
-        }
-
-        .cta h2 {
-            font-size: clamp(32px, 5vw, 58px);
-        }
-
-        .cta p {
+        .intro-copy {
             max-width: 620px;
-            margin-top: 12px;
-            color: rgba(255, 255, 255, 0.82);
-            font-size: 17px;
+            margin: 54px 0 0 auto;
+            color: #333;
+            font-size: clamp(18px, 2vw, 26px);
             line-height: 1.5;
         }
 
-        .cta .app-button {
+        .about {
+            padding-bottom: clamp(110px, 14vw, 210px);
+            display: grid;
+            grid-template-columns: minmax(300px, .86fr) 1.14fr;
+            gap: clamp(48px, 8vw, 130px);
+            align-items: center;
+        }
+
+        .portrait-wrap {
+            overflow: hidden;
+            background: #ededeb;
+        }
+
+        .portrait-wrap img {
+            width: 100%;
+            height: auto;
+        }
+
+        .about-copy {
+            max-width: 650px;
+        }
+
+        .about-copy h2 {
+            font-size: clamp(46px, 6.5vw, 92px);
+            line-height: .94;
+            letter-spacing: -.055em;
+            font-weight: 700;
+        }
+
+        .about-copy p:not(.section-label) {
+            max-width: 580px;
+            margin-top: 34px;
+            color: #333;
+            font-size: clamp(18px, 2vw, 24px);
+            line-height: 1.6;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .project {
+            position: relative;
+            min-height: 850px;
+            overflow: hidden;
+        }
+
+        .project-trackle {
+            background: #e9f3fb;
+        }
+
+        .project-bezly {
+            background: #050505;
+            color: white;
+        }
+
+        .project-copy {
+            position: relative;
+            z-index: 2;
+            padding: 58px;
+        }
+
+        .project-copy span {
+            display: block;
+            margin-bottom: 17px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .project-copy h2 {
+            font-size: clamp(46px, 6vw, 86px);
+            line-height: .94;
+            letter-spacing: -.055em;
+        }
+
+        .project-copy p {
+            max-width: 420px;
+            margin-top: 20px;
+            color: currentColor;
+            font-size: 17px;
+            line-height: 1.55;
+            opacity: .72;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 28px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid currentColor;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+
+        .project-art {
+            position: absolute;
+            right: 3%;
+            bottom: -20%;
+            width: min(66%, 590px);
+            transition: transform .6s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .project-bezly .project-art {
+            right: 6%;
+            bottom: -16%;
+            width: min(58%, 480px);
+            border: 1px solid #333;
+            border-radius: 42px 42px 0 0;
+        }
+
+        .project:hover .project-art {
+            transform: translateY(-18px);
+        }
+
+        .feature-editorial {
+            padding-top: clamp(110px, 13vw, 200px);
+            padding-bottom: clamp(110px, 13vw, 200px);
+        }
+
+        .feature-editorial h2 {
+            max-width: 920px;
+            font-size: clamp(48px, 7vw, 100px);
+        }
+
+        .feature-list {
+            margin-top: 88px;
+            border-top: 1px solid var(--line);
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 90px 1fr 1fr;
+            gap: 32px;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .feature-row span {
+            color: var(--quiet);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .14em;
+        }
+
+        .feature-row h3 {
+            font-size: clamp(25px, 3vw, 38px);
+            font-weight: 600;
+            letter-spacing: -.035em;
+        }
+
+        .feature-row p {
+            max-width: 500px;
+            color: var(--quiet);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .closing {
+            min-height: 74svh;
+            display: grid;
+            place-items: center;
+            padding: 100px 30px;
+            background: var(--navy);
+            color: white;
+            text-align: center;
+        }
+
+        .closing h2 {
+            max-width: 980px;
+            font-size: clamp(54px, 9vw, 128px);
+            line-height: .9;
+            letter-spacing: -.065em;
+        }
+
+        .closing a {
+            display: inline-block;
+            margin-top: 42px;
+            padding: 15px 22px;
+            border: 1px solid rgba(255,255,255,.55);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            transition: color .2s ease, background .2s ease;
+        }
+
+        .closing a:hover {
             background: white;
-            color: var(--ink);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+            color: var(--navy);
         }
 
         footer {
-            padding: 46px 22px;
-            border-top: 1px solid var(--line);
             background: white;
         }
 
         .footer-inner {
-            max-width: 1160px;
-            margin: 0 auto;
+            padding-top: 70px;
+            padding-bottom: 70px;
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 30px;
-            color: var(--muted);
+            gap: 48px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .footer-brand p {
+            max-width: 390px;
+            margin-top: 24px;
+            color: var(--quiet);
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .footer-column a {
+            display: block;
+            width: fit-content;
+            margin: 12px 0;
+            color: var(--quiet);
             font-size: 14px;
         }
 
-        .footer-inner p {
-            max-width: 380px;
-            margin-top: 12px;
-            line-height: 1.6;
-        }
-
-        .footer-col h3 {
-            margin-bottom: 12px;
-            color: var(--ink);
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .footer-col a {
-            display: block;
-            margin: 9px 0;
-            color: var(--muted);
-        }
-
-        .footer-col a:hover {
-            color: var(--blue);
-        }
-
         .copyright {
-            max-width: 1160px;
-            margin: 30px auto 0;
-            padding-top: 22px;
-            border-top: 1px solid var(--line);
-            color: var(--soft);
-            font-size: 13px;
+            width: min(100%, var(--max));
+            margin: 0 auto;
+            padding: 24px 42px 34px;
+            color: var(--quiet);
+            font-size: 12px;
         }
 
-        @media (max-width: 980px) {
-            .hero-inner,
-            .story,
-            .story.reverse,
-            .cta {
+        @media (max-width: 900px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+
+            .desktop-nav {
+                position: fixed;
+                inset: 76px 0 0;
+                display: none;
+                align-content: start;
+                padding: 50px 24px;
+                background: white;
+            }
+
+            .desktop-nav.open {
+                display: grid;
+            }
+
+            .desktop-nav a {
+                font-size: 28px;
+                letter-spacing: -.02em;
+                text-transform: none;
+            }
+
+            .desktop-nav .language {
+                padding: 24px 0 0;
+            }
+
+            .menu-button {
+                display: inline-flex;
+            }
+
+            .intro,
+            .about,
+            .feature-editorial,
+            .footer-inner {
+                padding-right: 22px;
+                padding-left: 22px;
+            }
+
+            .intro h1,
+            .feature-editorial h2 {
+                letter-spacing: -.05em;
+            }
+
+            .intro-copy {
+                margin-left: 0;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .portrait-wrap {
+                width: min(100%, 620px);
+            }
+
+            .project-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-copy {
-                text-align: center;
+            .project {
+                min-height: 720px;
             }
 
-            .hero-copy p,
-            .trust-row,
-            .hero-actions {
-                justify-content: center;
-                margin-left: auto;
-                margin-right: auto;
+            .project-copy {
+                padding: 36px 24px;
             }
 
-            .feature-strip,
-            .gallery,
-            .ai-grid,
+            .project-art {
+                right: -4%;
+                width: min(76%, 500px);
+            }
+
+            .feature-row {
+                grid-template-columns: 54px 1fr;
+            }
+
+            .feature-row p {
+                grid-column: 2;
+            }
+
             .footer-inner {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .copyright {
+                padding-right: 22px;
+                padding-left: 22px;
+            }
         }
 
-        @media (max-width: 680px) {
-            html,
-            body {
-                width: 100%;
-                overflow-x: hidden;
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
             }
 
-            .nav-links {
-                display: none;
-            }
-
-            .nav-inner {
-                padding: 12px 16px;
-                gap: 10px;
-            }
-
-            .brand span {
-                font-size: 16px;
-            }
-
-            .nav .app-button {
-                display: none;
-            }
-
-            .app-button,
-            .secondary-button {
-                min-height: 42px;
-                padding: 0 14px;
-            }
-
-            .hero {
-                padding: 44px 16px 34px;
-            }
-
-            .hero-inner {
-                width: 100%;
-                max-width: 100%;
-                min-width: 0;
-            }
-
-            section {
-                padding: 64px 16px;
-            }
-
-            h1 {
-                max-width: 300px;
-                margin-left: auto;
-                margin-right: auto;
-                font-size: clamp(36px, 11vw, 46px);
-                line-height: 1.02;
-                letter-spacing: -0.045em;
-                overflow-wrap: normal;
-            }
-
-            .hero-copy,
-            .section-head,
-            .copy-card {
-                min-width: 0;
-            }
-
-            .hero-copy p {
-                max-width: 300px;
-                font-size: 17px;
-            }
-
-            .trust-row {
-                justify-content: center;
-                max-width: 300px;
-                gap: 8px 10px;
-                font-size: 13px;
-            }
-
-            .hero-actions {
-                max-width: 300px;
-            }
-
-            .feature-strip,
-            .gallery,
-            .ai-grid,
-            .app-card,
-            .footer-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .app-card {
-                justify-items: start;
-            }
-
-            .copy-card {
-                padding: 24px;
-            }
-
-            .hero-visual,
-            .shot {
-                width: min(100%, 320px);
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-                border-radius: 30px;
-                padding: 9px;
-                overflow: hidden;
-            }
-
-            .hero-visual img,
-            .shot img {
-                width: 100%;
-                border-radius: 22px;
-            }
-
-            .cta {
-                padding: 26px;
-                border-radius: 28px;
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <header class="nav">
-            <div class="nav-inner">
-                <a href="#" class="brand" aria-label="clr91dev">
-                    <img src="./assets/clr91dev-mark.png" alt="">
-                    <span>clr91dev</span>
-                </a>
-                <div class="nav-links" aria-label="Primary navigation">
-                    <a href="#apps" data-i18n="nav.apps">Apps</a>
-                    <a href="#trackle" data-i18n="nav.trackle">Trackle</a>
-                    <a href="./bezly/" data-i18n="nav.bezly">Bezly</a>
-                    <a href="#legal" data-i18n="nav.legal">Legal</a>
-                </div>
-                <div class="lang" aria-label="Language">
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#home" aria-label="clr91dev home">
+                <img src="./assets/clr91dev-mark.png" alt="">
+                <span class="wordmark"><span>clr91</span><span>dev</span></span>
+            </a>
+
+            <nav class="desktop-nav" id="siteNav" aria-label="Primary navigation">
+                <a href="#apps" data-i18n="nav.apps">Apps</a>
+                <a href="#about" data-i18n="nav.about">About</a>
+                <a href="#trackle">Trackle</a>
+                <a href="./bezly/">Bezly</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
+                <div class="language" aria-label="Language">
                     <button class="active" data-lang="en">EN</button>
                     <button data-lang="es">ES</button>
                 </div>
-                <a class="app-button" href="#apps" data-i18n="nav.openApps">Open apps</a>
+            </nav>
+
+            <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home" aria-label="Samuel's photography">
+            <img
+                class="hero-image"
+                src="./assets/samuel-header.jpg"
+                alt="Colorful Nordic houses with an airplane in flight"
+            >
+        </section>
+
+        <section class="intro" id="apps">
+            <p class="section-label" data-i18n="intro.label">Independent apps · Madrid</p>
+            <h1 data-i18n="intro.title">Small apps. Clear ideas. Built with care.</h1>
+            <p class="intro-copy" data-i18n="intro.text">clr91dev is the home for focused iPhone tools designed to make everyday tasks feel simpler, calmer and more visual.</p>
+        </section>
+
+        <section class="about" id="about">
+            <figure class="portrait-wrap">
+                <img src="./assets/samuel-portrait.jpg" alt="Portrait of Samuel" loading="lazy">
+            </figure>
+            <div class="about-copy">
+                <p class="section-label" data-i18n="about.label">About</p>
+                <h2 data-i18n="about.title">Samuel, independent iOS developer.</h2>
+                <p data-i18n="about.text">I design and build apps that combine useful ideas with calm interfaces. clr91dev is where I bring those projects together and share each new release.</p>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <section class="hero">
-                <div class="hero-inner">
-                    <div class="hero-copy">
-                        <div class="eyebrow" data-i18n="hero.eyebrow">Independent iPhone apps</div>
-                        <h1 data-i18n="hero.title">clr91dev</h1>
-                        <p data-i18n="hero.text">A home for the apps I build: focused, private tools for everyday life, starting with Trackle and Bezly.</p>
-                        <div class="hero-actions">
-                            <a class="app-button" href="#apps" data-i18n="hero.primary">View apps</a>
-                            <a class="secondary-button" href="#trackle" data-i18n="hero.secondary">Explore Trackle</a>
-                        </div>
-                        <div class="trust-row">
-                            <span data-i18n="hero.trust1">iPhone apps</span>
-                            <span data-i18n="hero.trust2">Built by Samuel</span>
-                            <span data-i18n="hero.trust3">More coming soon</span>
-                        </div>
-                    </div>
+        <section class="project-grid" aria-label="Apps">
+            <article class="project project-trackle" id="trackle">
+                <div class="project-copy">
+                    <span>01 · iPhone</span>
+                    <h2>Trackle</h2>
+                    <p data-i18n="trackle.text">Subscriptions, renewals and spending insights in one clear private dashboard.</p>
+                    <a class="project-link" href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" data-i18n="trackle.link">View on App Store</a>
+                </div>
+                <img
+                    class="project-art"
+                    src="./assets/store/en/01-trackle-control.jpg"
+                    data-localized-image
+                    data-src-en="./assets/store/en/01-trackle-control.jpg"
+                    data-src-es="./assets/store/es/01-trackle-control.jpg"
+                    alt="Trackle for iPhone"
+                    loading="lazy"
+                >
+            </article>
 
-                    <div class="apps-board" aria-label="Featured apps">
-                        <article class="app-card">
-                            <img class="app-icon" src="./assets/trackle-app-icon.png" alt="Trackle">
-                            <div class="app-meta">
-                                <h2>Trackle</h2>
-                                <p data-i18n="apps.trackle.text">Subscriptions, renewals, widgets and spending insights in one private dashboard.</p>
-                            </div>
-                            <a class="status-pill" href="#trackle" data-i18n="apps.open">Open</a>
-                        </article>
-                        <article class="app-card">
-                            <img class="app-icon" src="./assets/bezly-logo.png" alt="">
-                            <div class="app-meta">
-                                <h2>Bezly</h2>
-                                <p data-i18n="apps.bezly.text">The next clr91dev app. Its space is ready here as the product grows.</p>
-                            </div>
-                            <a class="status-pill" href="./bezly/" data-i18n="apps.open">Open</a>
-                        </article>
-                    </div>
+            <article class="project project-bezly">
+                <div class="project-copy">
+                    <span>02 · iPhone</span>
+                    <h2>Bezly</h2>
+                    <p data-i18n="bezly.text">Create polished device mockups, videos and launch assets directly from your iPhone.</p>
+                    <a class="project-link" href="./bezly/" data-i18n="bezly.link">Explore Bezly</a>
                 </div>
-            </section>
+                <img class="project-art" src="./bezly/assets/bezly-device-start.jpg" alt="Bezly for iPhone" loading="lazy">
+            </article>
+        </section>
 
-            <section id="apps" class="apps-section">
-                <div class="section-inner">
-                    <div class="section-head">
-                        <p class="kicker" data-i18n="apps.kicker">Apps</p>
-                        <h2 data-i18n="apps.title">One page for every app I launch.</h2>
-                        <p data-i18n="apps.text">Use this page as the central place to discover, open and learn about each clr91dev project.</p>
-                    </div>
-                    <div class="feature-strip">
-                        <article class="pill-card">
-                            <strong>Trackle</strong>
-                            <p data-i18n="apps.trackle.long">Manage subscriptions, recurring charges and renewal calendars from your iPhone.</p>
-                        </article>
-                        <article class="pill-card" id="bezly">
-                            <strong>Bezly</strong>
-                            <p data-i18n="apps.bezly.long">Create App Store mockups, device-frame videos and launch visuals from your iPhone.</p>
-                        </article>
-                        <article class="pill-card">
-                            <strong data-i18n="apps.future.title">Future apps</strong>
-                            <p data-i18n="apps.future.text">New projects can be added here without rebuilding the whole site from scratch.</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
+        <section class="feature-editorial">
+            <p class="section-label" data-i18n="features.label">Inside Trackle</p>
+            <h2 data-i18n="features.title">Know what renews. Understand what you spend.</h2>
 
-            <section id="trackle" class="trackle-detail">
-                <div class="section-inner">
-                    <div class="section-head">
-                        <p class="kicker" data-i18n="features.kicker">Why Trackle</p>
-                        <h2 data-i18n="features.title">Know what you pay, when it renews, and what it means.</h2>
-                        <p data-i18n="features.intro">Trackle is the first app in the clr91dev collection.</p>
-                    </div>
-                    <div class="feature-strip">
-                        <article class="pill-card">
-                            <strong data-i18n="features.one.title">Renewals first</strong>
-                            <p data-i18n="features.one.text">See the next charges at the top, with the service logo, amount and time remaining.</p>
-                        </article>
-                        <article class="pill-card">
-                            <strong data-i18n="features.two.title">Real monthly totals</strong>
-                            <p data-i18n="features.two.text">Track monthly spend and estimated annual cost without building spreadsheets by hand.</p>
-                        </article>
-                        <article class="pill-card">
-                            <strong data-i18n="features.three.title">Faster setup</strong>
-                            <p data-i18n="features.three.text">Quick suggestions make it simple to add common services like Spotify, Netflix, iCloud and ChatGPT.</p>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <section id="calendar">
-                <div class="section-inner story">
-                    <figure class="shot">
-                        <img
-                            src="./assets/store/en/02-trackle-calendar.jpg"
-                            data-localized-image
-                            data-src-en="./assets/store/en/02-trackle-calendar.jpg"
-                            data-src-es="./assets/store/es/02-trackle-calendar.jpg"
-                            alt="Trackle calendar view with subscription renewals"
-                            loading="lazy"
-                        >
-                    </figure>
-                    <div class="copy-card">
-                        <p class="kicker" data-i18n="calendar.kicker">Calendar View</p>
-                        <h2 data-i18n="calendar.title">Never miss a charge.</h2>
-                        <p data-i18n="calendar.text">Trackle turns renewals into a visual calendar, so busy months and upcoming payments are easy to spot before they happen.</p>
-                        <ul>
-                            <li data-i18n="calendar.b1">Swipe between months</li>
-                            <li data-i18n="calendar.b2">Charged and pending totals</li>
-                            <li data-i18n="calendar.b3">Service logos on renewal days</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="analytics">
-                <div class="section-inner story reverse">
-                    <div class="copy-card">
-                        <p class="kicker" data-i18n="analytics.kicker">Smart Analytics</p>
-                        <h2 data-i18n="analytics.title">Detailed statistics of your spending.</h2>
-                        <p data-i18n="analytics.text">See patterns by month, category and annual projection. The charts are built to make subscription decisions faster.</p>
-                    </div>
-                    <figure class="shot">
-                        <img
-                            src="./assets/store/en/03-trackle-statistics.jpg"
-                            data-localized-image
-                            data-src-en="./assets/store/en/03-trackle-statistics.jpg"
-                            data-src-es="./assets/store/es/03-trackle-statistics.jpg"
-                            alt="Trackle statistics screen with monthly and annual totals"
-                            loading="lazy"
-                        >
-                    </figure>
-                </div>
-            </section>
-
-            <section id="ai">
-                <div class="section-inner story reverse">
-                    <div class="copy-card">
-                        <p class="kicker" data-i18n="ai.kicker">AI Assistant</p>
-                        <h2 data-i18n="ai.title">Ask your subscriptions what they cost you.</h2>
-                        <p data-i18n="ai.text">Ask what renews soon, what costs the most, or how much you will spend this year. Trackle answers from your own data.</p>
-                        <ul>
-                            <li data-i18n="ai.b1">On-device analysis</li>
-                            <li data-i18n="ai.b2">Fast predefined questions</li>
-                            <li data-i18n="ai.b3">No financial data sent to external servers</li>
-                        </ul>
-                    </div>
-                    <figure class="shot">
-                        <img
-                            src="./assets/store/en/04-trackle-assistant.jpg"
-                            data-localized-image
-                            data-src-en="./assets/store/en/04-trackle-assistant.jpg"
-                            data-src-es="./assets/store/es/04-trackle-assistant.jpg"
-                            alt="Trackle AI Assistant"
-                            loading="lazy"
-                        >
-                    </figure>
-                </div>
-            </section>
-
-            <section id="widgets" class="widgets-band">
-                <div class="section-inner story">
-                    <figure class="shot">
-                        <img
-                            src="./assets/store/en/01-trackle-control.jpg"
-                            data-localized-image
-                            data-src-en="./assets/store/en/01-trackle-control.jpg"
-                            data-src-es="./assets/store/es/01-trackle-control.jpg"
-                            alt="Trackle subscriptions dashboard"
-                            loading="lazy"
-                        >
-                    </figure>
-                    <div class="copy-card">
-                        <p class="kicker" data-i18n="widgets.kicker">Your dashboard</p>
-                        <h2 data-i18n="widgets.title">Everything under control at a glance.</h2>
-                        <p data-i18n="widgets.text">See monthly spending, upcoming renewals and every active subscription from one calm, focused dashboard.</p>
-                        <ul>
-                            <li data-i18n="widgets.b1">Monthly total and active subscriptions</li>
-                            <li data-i18n="widgets.b2">Upcoming renewals with full-color icons</li>
-                            <li data-i18n="widgets.b3">Widgets for your Home Screen</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="section-inner story">
-                    <figure class="shot">
-                        <img
-                            src="./assets/store/en/05-trackle-quick-add.jpg"
-                            data-localized-image
-                            data-src-en="./assets/store/en/05-trackle-quick-add.jpg"
-                            data-src-es="./assets/store/es/05-trackle-quick-add.jpg"
-                            alt="Trackle quick subscription suggestions"
-                            loading="lazy"
-                        >
-                    </figure>
-                    <div class="copy-card">
-                        <p class="kicker" data-i18n="flow.kicker">Fast setup</p>
-                        <h2 data-i18n="flow.title">Add subscriptions without friction.</h2>
-                        <p data-i18n="flow.text">Start with quick suggestions or add a service manually. Trackle keeps the interface calm and focused while you enter only what matters.</p>
-                        <ul>
-                            <li data-i18n="flow.card1">Popular subscriptions ready to add.</li>
-                            <li data-i18n="flow.card2">A guided flow for amount, cycle and renewal day.</li>
-                            <li data-i18n="flow.card4">Your dashboard stays simple and readable.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="final">
-                <div class="section-inner">
-                    <div class="cta">
-                        <div>
-                            <h2 data-i18n="cta.title">Ready to stop guessing?</h2>
-                            <p data-i18n="cta.text">Download Trackle, add your recurring payments, and get a clear picture of what you can spend.</p>
-                        </div>
-                        <a class="app-button" href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" data-i18n="cta.button">Open App Store</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer id="legal">
-            <div class="footer-inner">
-                <div>
-                    <a href="#" class="brand">
-                        <img src="./assets/clr91dev-mark.png" alt="">
-                        <span>clr91dev</span>
-                    </a>
-                    <p data-i18n="footer.text">Independent iPhone apps built by clr91dev.</p>
-                </div>
-                <div class="footer-col">
-                    <h3 data-i18n="footer.product">Apps</h3>
-                    <a href="#apps" data-i18n="nav.apps">Apps</a>
-                    <a href="#trackle" data-i18n="nav.trackle">Trackle</a>
-                    <a href="./bezly/" data-i18n="nav.bezly">Bezly</a>
-                    <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener">App Store</a>
-                </div>
-                <div class="footer-col">
-                    <h3 data-i18n="footer.legal">Legal</h3>
-                    <a href="./privacy/" data-i18n="footer.privacy">Privacy Policy</a>
-                    <a href="./terms/" data-i18n="footer.terms">Terms of Use</a>
-                    <a href="mailto:clr91dev@gmail.com">clr91dev@gmail.com</a>
-                </div>
+            <div class="feature-list">
+                <article class="feature-row">
+                    <span>01</span>
+                    <h3 data-i18n="features.calendar.title">A visual renewal calendar</h3>
+                    <p data-i18n="features.calendar.text">See upcoming charges, busy months and service icons before each payment arrives.</p>
+                </article>
+                <article class="feature-row">
+                    <span>02</span>
+                    <h3 data-i18n="features.stats.title">Clear spending statistics</h3>
+                    <p data-i18n="features.stats.text">Compare monthly and annual totals and understand every category without spreadsheets.</p>
+                </article>
+                <article class="feature-row">
+                    <span>03</span>
+                    <h3 data-i18n="features.ai.title">A private AI assistant</h3>
+                    <p data-i18n="features.ai.text">Ask what renews soon, what costs the most and where you may be able to save.</p>
+                </article>
             </div>
-            <div class="copyright">© 2026 clr91dev</div>
-        </footer>
-    </div>
+        </section>
+
+        <section class="closing">
+            <div>
+                <h2 data-i18n="closing.title">Your subscriptions, finally clear.</h2>
+                <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" data-i18n="closing.link">Open App Store</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="brand" href="#home">
+                    <img src="./assets/clr91dev-mark.png" alt="">
+                    <span class="wordmark"><span>clr91</span><span>dev</span></span>
+                </a>
+                <p data-i18n="footer.text">Independent iPhone apps built by Samuel with a focus on clarity, privacy and thoughtful design.</p>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.apps">Apps</h3>
+                <a href="#trackle">Trackle</a>
+                <a href="./bezly/">Bezly</a>
+                <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener">App Store</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.contact">Contact</h3>
+                <a href="mailto:clr91dev@gmail.com">clr91dev@gmail.com</a>
+                <a href="./privacy/" data-i18n="footer.privacy">Privacy Policy</a>
+                <a href="./terms/" data-i18n="footer.terms">Terms of Use</a>
+            </div>
+        </div>
+        <div class="copyright">© 2026 clr91dev</div>
+    </footer>
 
     <script>
         const translations = {
             en: {
                 "nav.apps": "Apps",
-                "nav.trackle": "Trackle",
-                "nav.bezly": "Bezly",
-                "nav.legal": "Legal",
-                "nav.openApps": "Open apps",
-                "nav.calendar": "Calendar",
-                "nav.analytics": "Analytics",
-                "nav.ai": "AI",
-                "nav.widgets": "Widgets",
-                "nav.download": "App Store",
-                "hero.eyebrow": "Independent iPhone apps",
-                "hero.title": "clr91dev",
-                "hero.text": "A home for the apps I build: focused, private tools for everyday life, starting with Trackle and Bezly.",
-                "hero.primary": "View apps",
-                "hero.secondary": "Explore Trackle",
-                "hero.trust1": "iPhone apps",
-                "hero.trust2": "Built by Samuel",
-                "hero.trust3": "More coming soon",
-                "apps.kicker": "Apps",
-                "apps.title": "One page for every app I launch.",
-                "apps.text": "Use this page as the central place to discover, open and learn about each clr91dev project.",
-                "apps.open": "Open",
-                "apps.soon": "Soon",
-                "apps.trackle.text": "Subscriptions, renewals, widgets and spending insights in one private dashboard.",
-                "apps.bezly.text": "Create polished mockups, videos and launch assets for App Store and social channels.",
-                "apps.trackle.long": "Manage subscriptions, recurring charges and renewal calendars from your iPhone.",
-                "apps.bezly.long": "Create App Store mockups, device-frame videos and launch visuals from your iPhone.",
-                "apps.future.title": "Future apps",
-                "apps.future.text": "New projects can be added here without rebuilding the whole site from scratch.",
-                "features.kicker": "Why Trackle",
-                "features.title": "Know what you pay, when it renews, and what it means.",
-                "features.intro": "Trackle is the first app in the clr91dev collection.",
-                "features.one.title": "Renewals first",
-                "features.one.text": "See the next charges at the top, with the service logo, amount and time remaining.",
-                "features.two.title": "Real monthly totals",
-                "features.two.text": "Track monthly spend and estimated annual cost without building spreadsheets by hand.",
-                "features.three.title": "Faster setup",
-                "features.three.text": "Quick suggestions make it simple to add common services like Spotify, Netflix, iCloud and ChatGPT.",
-                "calendar.kicker": "Calendar View",
-                "calendar.title": "Never miss a charge.",
-                "calendar.text": "Trackle turns renewals into a visual calendar, so busy months and upcoming payments are easy to spot before they happen.",
-                "calendar.b1": "Swipe between months",
-                "calendar.b2": "Charged and pending totals",
-                "calendar.b3": "Service logos on renewal days",
-                "analytics.kicker": "Smart Analytics",
-                "analytics.title": "Detailed statistics of your spending.",
-                "analytics.text": "See patterns by month, category and annual projection. The charts are built to make subscription decisions faster.",
-                "ai.kicker": "AI Assistant",
-                "ai.title": "Ask your subscriptions what they cost you.",
-                "ai.text": "Ask what renews soon, what costs the most, or how much you will spend this year. Trackle answers from your own data.",
-                "ai.b1": "On-device analysis",
-                "ai.b2": "Fast predefined questions",
-                "ai.b3": "No financial data sent to external servers",
-                "widgets.kicker": "Your dashboard",
-                "widgets.title": "Everything under control at a glance.",
-                "widgets.text": "See monthly spending, upcoming renewals and every active subscription from one calm, focused dashboard.",
-                "widgets.b1": "Monthly total and active subscriptions",
-                "widgets.b2": "Upcoming renewals with full-color icons",
-                "widgets.b3": "Widgets for your Home Screen",
-                "flow.kicker": "Fast setup",
-                "flow.title": "Add subscriptions without friction.",
-                "flow.text": "Start with quick suggestions or add a service manually. Trackle keeps the interface calm and focused while you enter only what matters.",
-                "flow.card1": "Popular subscriptions ready to add.",
-                "flow.card2": "A guided flow for amount, cycle and renewal day.",
-                "flow.card3": "A wider widget view for monthly totals.",
-                "flow.card4": "Your dashboard stays simple and readable.",
-                "cta.title": "Ready to stop guessing?",
-                "cta.text": "Download Trackle, add your recurring payments, and get a clear picture of what you can spend.",
-                "cta.button": "Open App Store",
-                "footer.text": "Independent iPhone apps built by clr91dev.",
-                "footer.product": "Apps",
-                "footer.legal": "Legal",
+                "nav.about": "About",
+                "nav.contact": "Contact",
+                "intro.label": "Independent apps · Madrid",
+                "intro.title": "Small apps. Clear ideas. Built with care.",
+                "intro.text": "clr91dev is the home for focused iPhone tools designed to make everyday tasks feel simpler, calmer and more visual.",
+                "about.label": "About",
+                "about.title": "Samuel, independent iOS developer.",
+                "about.text": "I design and build apps that combine useful ideas with calm interfaces. clr91dev is where I bring those projects together and share each new release.",
+                "trackle.text": "Subscriptions, renewals and spending insights in one clear private dashboard.",
+                "trackle.link": "View on App Store",
+                "bezly.text": "Create polished device mockups, videos and launch assets directly from your iPhone.",
+                "bezly.link": "Explore Bezly",
+                "features.label": "Inside Trackle",
+                "features.title": "Know what renews. Understand what you spend.",
+                "features.calendar.title": "A visual renewal calendar",
+                "features.calendar.text": "See upcoming charges, busy months and service icons before each payment arrives.",
+                "features.stats.title": "Clear spending statistics",
+                "features.stats.text": "Compare monthly and annual totals and understand every category without spreadsheets.",
+                "features.ai.title": "A private AI assistant",
+                "features.ai.text": "Ask what renews soon, what costs the most and where you may be able to save.",
+                "closing.title": "Your subscriptions, finally clear.",
+                "closing.link": "Open App Store",
+                "footer.text": "Independent iPhone apps built by Samuel with a focus on clarity, privacy and thoughtful design.",
+                "footer.apps": "Apps",
+                "footer.contact": "Contact",
                 "footer.privacy": "Privacy Policy",
                 "footer.terms": "Terms of Use"
             },
             es: {
                 "nav.apps": "Apps",
-                "nav.trackle": "Trackle",
-                "nav.bezly": "Bezly",
-                "nav.legal": "Legal",
-                "nav.openApps": "Ver apps",
-                "nav.calendar": "Calendario",
-                "nav.analytics": "Estadísticas",
-                "nav.ai": "IA",
-                "nav.widgets": "Widgets",
-                "nav.download": "App Store",
-                "hero.eyebrow": "Apps independientes para iPhone",
-                "hero.title": "clr91dev",
-                "hero.text": "El lugar para las apps que voy creando: herramientas enfocadas y privadas para el día a día, empezando por Trackle y Bezly.",
-                "hero.primary": "Ver apps",
-                "hero.secondary": "Explorar Trackle",
-                "hero.trust1": "Apps para iPhone",
-                "hero.trust2": "Creado por Samuel",
-                "hero.trust3": "Más apps pronto",
-                "apps.kicker": "Apps",
-                "apps.title": "Una página para cada app que lance.",
-                "apps.text": "Esta página será el punto central para descubrir, abrir y conocer cada proyecto de clr91dev.",
-                "apps.open": "Abrir",
-                "apps.soon": "Pronto",
-                "apps.trackle.text": "Suscripciones, renovaciones, widgets y estadísticas de gasto en un panel privado.",
-                "apps.bezly.text": "Crea mockups, vídeos y assets de lanzamiento pulidos para App Store y redes.",
-                "apps.trackle.long": "Gestiona suscripciones, pagos recurrentes y calendarios de renovación desde tu iPhone.",
-                "apps.bezly.long": "Crea mockups de App Store, vídeos con dispositivo y visuales de lanzamiento desde tu iPhone.",
-                "apps.future.title": "Futuras apps",
-                "apps.future.text": "Los nuevos proyectos podrán añadirse aquí sin rehacer toda la web desde cero.",
-                "features.kicker": "Por qué Trackle",
-                "features.title": "Sabe cuánto pagas, cuándo renueva y qué significa.",
-                "features.intro": "Trackle es la primera app de la colección clr91dev.",
-                "features.one.title": "Renovaciones primero",
-                "features.one.text": "Ve los próximos cobros arriba, con el logo del servicio, importe y tiempo restante.",
-                "features.two.title": "Totales mensuales reales",
-                "features.two.text": "Controla gasto mensual y coste anual estimado sin montar hojas de cálculo a mano.",
-                "features.three.title": "Alta más rápida",
-                "features.three.text": "Las sugerencias rápidas facilitan añadir servicios como Spotify, Netflix, iCloud o ChatGPT.",
-                "calendar.kicker": "Vista de calendario",
-                "calendar.title": "No vuelvas a perder un cobro.",
-                "calendar.text": "Trackle convierte tus renovaciones en un calendario visual, para detectar meses cargados y pagos próximos antes de que ocurran.",
-                "calendar.b1": "Desliza entre meses",
-                "calendar.b2": "Totales cobrados y pendientes",
-                "calendar.b3": "Logos en los días de renovación",
-                "analytics.kicker": "Estadísticas inteligentes",
-                "analytics.title": "Estadísticas detalladas de tus gastos.",
-                "analytics.text": "Consulta patrones por mes, categoría y proyección anual. Las gráficas están pensadas para decidir más rápido.",
-                "ai.kicker": "Asistente IA",
-                "ai.title": "Pregunta a tus suscripciones cuánto te cuestan.",
-                "ai.text": "Pregunta qué renueva pronto, qué cuesta más o cuánto gastarás este año. Trackle responde con tus propios datos.",
-                "ai.b1": "Análisis en el dispositivo",
-                "ai.b2": "Preguntas rápidas predefinidas",
-                "ai.b3": "Sin enviar datos financieros a servidores externos",
-                "widgets.kicker": "Tu panel",
-                "widgets.title": "Todo bajo control de un vistazo.",
-                "widgets.text": "Consulta el gasto mensual, las próximas renovaciones y todas tus suscripciones activas desde un panel claro y ordenado.",
-                "widgets.b1": "Total mensual y suscripciones activas",
-                "widgets.b2": "Próximas renovaciones con iconos a todo color",
-                "widgets.b3": "Widgets para tu pantalla de inicio",
-                "flow.kicker": "Configuración rápida",
-                "flow.title": "Añade suscripciones sin fricción.",
-                "flow.text": "Empieza con sugerencias rápidas o añade un servicio manualmente. Trackle mantiene la interfaz calmada y enfocada.",
-                "flow.card1": "Suscripciones populares listas para añadir.",
-                "flow.card2": "Flujo guiado para importe, ciclo y día de renovación.",
-                "flow.card3": "Widget ancho para ver totales mensuales.",
-                "flow.card4": "Tu panel se mantiene simple y legible.",
-                "cta.title": "¿Listo para dejar de adivinar?",
-                "cta.text": "Descarga Trackle, añade tus pagos recurrentes y ten claro cuánto puedes gastar.",
-                "cta.button": "Abrir App Store",
-                "footer.text": "Apps independientes para iPhone creadas por clr91dev.",
-                "footer.product": "Apps",
-                "footer.legal": "Legal",
+                "nav.about": "Sobre mí",
+                "nav.contact": "Contacto",
+                "intro.label": "Apps independientes · Madrid",
+                "intro.title": "Apps pequeñas. Ideas claras. Hechas con cuidado.",
+                "intro.text": "clr91dev es el hogar de herramientas para iPhone diseñadas para hacer las tareas cotidianas más sencillas, tranquilas y visuales.",
+                "about.label": "Sobre mí",
+                "about.title": "Samuel, desarrollador iOS independiente.",
+                "about.text": "Diseño y desarrollo apps que combinan ideas útiles con interfaces tranquilas. clr91dev es el lugar donde reúno estos proyectos y comparto cada nuevo lanzamiento.",
+                "trackle.text": "Suscripciones, renovaciones y estadísticas de gasto en un panel privado y claro.",
+                "trackle.link": "Ver en App Store",
+                "bezly.text": "Crea mockups de dispositivos, vídeos y recursos de lanzamiento directamente desde tu iPhone.",
+                "bezly.link": "Explorar Bezly",
+                "features.label": "Dentro de Trackle",
+                "features.title": "Sabe qué renueva. Entiende cuánto gastas.",
+                "features.calendar.title": "Un calendario visual de renovaciones",
+                "features.calendar.text": "Consulta próximos cobros, meses con más pagos e iconos de servicios antes de cada cargo.",
+                "features.stats.title": "Estadísticas de gasto claras",
+                "features.stats.text": "Compara totales mensuales y anuales y entiende cada categoría sin hojas de cálculo.",
+                "features.ai.title": "Un asistente IA privado",
+                "features.ai.text": "Pregunta qué renueva pronto, qué cuesta más y dónde podrías ahorrar.",
+                "closing.title": "Tus suscripciones, por fin claras.",
+                "closing.link": "Abrir App Store",
+                "footer.text": "Apps independientes para iPhone creadas por Samuel con atención a la claridad, la privacidad y el diseño.",
+                "footer.apps": "Apps",
+                "footer.contact": "Contacto",
                 "footer.privacy": "Política de privacidad",
                 "footer.terms": "Términos de uso"
             }
         };
 
-        function applyLanguage(lang) {
-            const dictionary = translations[lang] || translations.en;
-            document.documentElement.lang = lang;
-            document.querySelectorAll("[data-i18n]").forEach((node) => {
-                const key = node.getAttribute("data-i18n");
-                if (dictionary[key]) node.textContent = dictionary[key];
-            });
-            document.querySelectorAll("[data-localized-image]").forEach((image) => {
-                const source = image.dataset[lang === "es" ? "srcEs" : "srcEn"];
-                if (source) image.src = source;
-            });
-            document.querySelectorAll("[data-lang]").forEach((button) => {
-                button.classList.toggle("active", button.dataset.lang === lang);
-            });
-            try { localStorage.setItem("clr91dev-site-language", lang); } catch (_) {}
-        }
+        let currentLanguage = "en";
+        const menuButton = document.getElementById("menuButton");
+        const siteNav = document.getElementById("siteNav");
 
         function initialLanguage() {
             try {
-                const saved = localStorage.getItem("clr91dev-site-language") || localStorage.getItem("trackle-site-language");
-                if (saved === "es" || saved === "en") return saved;
+                const saved = localStorage.getItem("clr91dev-site-language");
+                if (saved === "en" || saved === "es") return saved;
             } catch (_) {}
             return (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
         }
 
+        function applyLanguage(language) {
+            currentLanguage = language;
+            document.documentElement.lang = language;
+            const dictionary = translations[language] || translations.en;
+
+            document.querySelectorAll("[data-i18n]").forEach((node) => {
+                const key = node.dataset.i18n;
+                if (dictionary[key]) node.textContent = dictionary[key];
+            });
+
+            document.querySelectorAll("[data-localized-image]").forEach((image) => {
+                const source = image.dataset[language === "es" ? "srcEs" : "srcEn"];
+                if (source) image.src = source;
+            });
+
+            document.querySelectorAll("[data-lang]").forEach((button) => {
+                button.classList.toggle("active", button.dataset.lang === language);
+            });
+
+            try {
+                localStorage.setItem("clr91dev-site-language", language);
+            } catch (_) {}
+
+        }
+
         document.querySelectorAll("[data-lang]").forEach((button) => {
             button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+        });
+
+        menuButton.addEventListener("click", () => {
+            const open = siteNav.classList.toggle("open");
+            document.body.classList.toggle("menu-open", open);
+            menuButton.setAttribute("aria-expanded", String(open));
+            menuButton.textContent = open ? "×" : "☰";
+        });
+
+        siteNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                siteNav.classList.remove("open");
+                document.body.classList.remove("menu-open");
+                menuButton.setAttribute("aria-expanded", "false");
+                menuButton.textContent = "☰";
+            });
         });
 
         applyLanguage(initialLanguage());
