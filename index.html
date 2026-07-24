@@ -190,7 +190,7 @@
 
         .intro,
         .about,
-        .feature-editorial,
+        .app-launcher,
         .footer-inner {
             width: min(100%, var(--max));
             margin: 0 auto;
@@ -200,7 +200,7 @@
 
         .intro {
             padding-top: clamp(100px, 12vw, 180px);
-            padding-bottom: clamp(100px, 12vw, 180px);
+            padding-bottom: clamp(64px, 8vw, 110px);
         }
 
         .section-label {
@@ -212,8 +212,7 @@
             text-transform: uppercase;
         }
 
-        .intro h1,
-        .feature-editorial h2 {
+        .intro h1 {
             max-width: 1100px;
             font-size: clamp(54px, 8vw, 118px);
             line-height: .92;
@@ -266,162 +265,49 @@
             line-height: 1.6;
         }
 
-        .project-grid {
+        .app-launcher {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            padding-top: 8px;
+            padding-bottom: clamp(110px, 14vw, 210px);
+        }
+
+        .app-shortcut {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .project {
-            position: relative;
-            min-height: 850px;
-            overflow: hidden;
-        }
-
-        .project-trackle {
-            background: #e9f3fb;
-        }
-
-        .project-bezly {
-            background: #050505;
-            color: white;
-        }
-
-        .project-copy {
-            position: relative;
-            z-index: 2;
-            padding: 58px;
-        }
-
-        .project-copy span {
-            display: block;
-            margin-bottom: 17px;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-        }
-
-        .project-copy h2 {
-            font-size: clamp(46px, 6vw, 86px);
-            line-height: .94;
-            letter-spacing: -.055em;
-        }
-
-        .project-copy p {
-            max-width: 420px;
-            margin-top: 20px;
-            color: currentColor;
-            font-size: 17px;
-            line-height: 1.55;
-            opacity: .72;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 28px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid currentColor;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-        }
-
-        .project-art {
-            position: absolute;
-            right: 3%;
-            bottom: -20%;
-            width: min(66%, 590px);
-            transition: transform .6s cubic-bezier(.2,.7,.2,1);
-        }
-
-        .project-bezly .project-art {
-            right: 6%;
-            bottom: -16%;
-            width: min(58%, 480px);
-            border: 1px solid #333;
-            border-radius: 42px 42px 0 0;
-        }
-
-        .project:hover .project-art {
-            transform: translateY(-18px);
-        }
-
-        .feature-editorial {
-            padding-top: clamp(110px, 13vw, 200px);
-            padding-bottom: clamp(110px, 13vw, 200px);
-        }
-
-        .feature-editorial h2 {
-            max-width: 920px;
-            font-size: clamp(48px, 7vw, 100px);
-        }
-
-        .feature-list {
-            margin-top: 88px;
-            border-top: 1px solid var(--line);
-        }
-
-        .feature-row {
-            display: grid;
-            grid-template-columns: 90px 1fr 1fr;
-            gap: 32px;
-            padding: 32px 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .feature-row span {
-            color: var(--quiet);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: .14em;
-        }
-
-        .feature-row h3 {
-            font-size: clamp(25px, 3vw, 38px);
-            font-weight: 600;
-            letter-spacing: -.035em;
-        }
-
-        .feature-row p {
-            max-width: 500px;
-            color: var(--quiet);
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .closing {
-            min-height: 74svh;
-            display: grid;
-            place-items: center;
-            padding: 100px 30px;
-            background: var(--navy);
-            color: white;
+            width: 112px;
+            justify-items: center;
+            gap: 12px;
+            padding: 12px 10px;
+            border-radius: 24px;
             text-align: center;
+            transition: transform .2s ease, background .2s ease;
         }
 
-        .closing h2 {
-            max-width: 980px;
-            font-size: clamp(54px, 9vw, 128px);
-            line-height: .9;
-            letter-spacing: -.065em;
+        .app-shortcut:hover,
+        .app-shortcut:focus-visible {
+            transform: translateY(-3px);
+            background: #f4f4f2;
         }
 
-        .closing a {
-            display: inline-block;
-            margin-top: 42px;
-            padding: 15px 22px;
-            border: 1px solid rgba(255,255,255,.55);
-            font-size: 11px;
+        .app-shortcut:focus-visible,
+        .social-link:focus-visible {
+            outline: 2px solid var(--ink);
+            outline-offset: 4px;
+        }
+
+        .app-shortcut img {
+            width: 82px;
+            height: 82px;
+            border-radius: 21px;
+            object-fit: cover;
+            box-shadow: 0 12px 28px rgba(12, 23, 40, .14);
+        }
+
+        .app-shortcut span {
+            font-size: 14px;
             font-weight: 800;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            transition: color .2s ease, background .2s ease;
-        }
-
-        .closing a:hover {
-            background: white;
-            color: var(--navy);
+            letter-spacing: -.015em;
         }
 
         footer {
@@ -458,6 +344,48 @@
             margin: 12px 0;
             color: var(--quiet);
             font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .footer-column .social-link {
+            display: inline-grid;
+            width: 42px;
+            height: 42px;
+            margin: 0;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            background: white;
+            box-shadow: 0 8px 22px rgba(12, 23, 40, .08);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .footer-column .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(12, 23, 40, .13);
+        }
+
+        .social-link img {
+            width: 27px;
+            height: 27px;
+            object-fit: contain;
+        }
+
+        .social-link.threads {
+            border-color: #111;
+            background: #111;
+        }
+
+        .social-link.threads img {
+            width: 25px;
+            height: 25px;
         }
 
         .copyright {
@@ -506,14 +434,13 @@
 
             .intro,
             .about,
-            .feature-editorial,
+            .app-launcher,
             .footer-inner {
                 padding-right: 22px;
                 padding-left: 22px;
             }
 
-            .intro h1,
-            .feature-editorial h2 {
+            .intro h1 {
                 letter-spacing: -.05em;
             }
 
@@ -530,29 +457,9 @@
                 width: min(100%, 620px);
             }
 
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project {
-                min-height: 720px;
-            }
-
-            .project-copy {
-                padding: 36px 24px;
-            }
-
-            .project-art {
-                right: -4%;
-                width: min(76%, 500px);
-            }
-
-            .feature-row {
-                grid-template-columns: 54px 1fr;
-            }
-
-            .feature-row p {
-                grid-column: 2;
+            .app-launcher {
+                justify-content: center;
+                gap: 18px;
             }
 
             .footer-inner {
@@ -593,7 +500,7 @@
             <nav class="desktop-nav" id="siteNav" aria-label="Primary navigation">
                 <a href="#apps" data-i18n="nav.apps">Apps</a>
                 <a href="#about" data-i18n="nav.about">About</a>
-                <a href="#trackle">Trackle</a>
+                <a href="./trackle/">Trackle</a>
                 <a href="./bezly/">Bezly</a>
                 <a href="#contact" data-i18n="nav.contact">Contact</a>
                 <div class="language" aria-label="Language">
@@ -615,10 +522,21 @@
             >
         </section>
 
-        <section class="intro" id="apps">
+        <section class="intro">
             <p class="section-label" data-i18n="intro.label">Independent apps · Madrid</p>
             <h1 data-i18n="intro.title">Small apps. Clear ideas. Built with care.</h1>
             <p class="intro-copy" data-i18n="intro.text">clr91dev is the home for focused iPhone tools designed to make everyday tasks feel simpler, calmer and more visual.</p>
+        </section>
+
+        <section class="app-launcher" id="apps" aria-label="Apps">
+            <a class="app-shortcut" href="./trackle/" aria-label="View Trackle details">
+                <img src="./assets/trackle-app-icon.png" alt="">
+                <span>Trackle</span>
+            </a>
+            <a class="app-shortcut" href="./bezly/" aria-label="View Bezly details">
+                <img src="./bezly/assets/bezly-app-icon.jpg" alt="">
+                <span>Bezly</span>
+            </a>
         </section>
 
         <section class="about" id="about">
@@ -632,65 +550,6 @@
             </div>
         </section>
 
-        <section class="project-grid" aria-label="Apps">
-            <article class="project project-trackle" id="trackle">
-                <div class="project-copy">
-                    <span data-i18n="trackle.status">01 · Available on App Store</span>
-                    <h2>Trackle</h2>
-                    <p data-i18n="trackle.text">Subscriptions, renewals and spending insights in one clear private dashboard.</p>
-                    <a class="project-link" href="./trackle/" data-i18n="trackle.link">Explore Trackle</a>
-                </div>
-                <img
-                    class="project-art"
-                    src="./assets/store/en/01-trackle-control.jpg"
-                    data-localized-image
-                    data-src-en="./assets/store/en/01-trackle-control.jpg"
-                    data-src-es="./assets/store/es/01-trackle-control.jpg"
-                    alt="Trackle for iPhone"
-                    loading="lazy"
-                >
-            </article>
-
-            <article class="project project-bezly">
-                <div class="project-copy">
-                    <span data-i18n="bezly.status">02 · Available on App Store</span>
-                    <h2>Bezly</h2>
-                    <p data-i18n="bezly.text">Create polished device mockups, videos and launch assets directly from your iPhone.</p>
-                    <a class="project-link" href="./bezly/" data-i18n="bezly.link">Explore Bezly</a>
-                </div>
-                <img class="project-art" src="./bezly/assets/bezly-device-start.jpg" alt="Bezly for iPhone" loading="lazy">
-            </article>
-        </section>
-
-        <section class="feature-editorial">
-            <p class="section-label" data-i18n="features.label">Inside Trackle</p>
-            <h2 data-i18n="features.title">Know what renews. Understand what you spend.</h2>
-
-            <div class="feature-list">
-                <article class="feature-row">
-                    <span>01</span>
-                    <h3 data-i18n="features.calendar.title">A visual renewal calendar</h3>
-                    <p data-i18n="features.calendar.text">See upcoming charges, busy months and service icons before each payment arrives.</p>
-                </article>
-                <article class="feature-row">
-                    <span>02</span>
-                    <h3 data-i18n="features.stats.title">Clear spending statistics</h3>
-                    <p data-i18n="features.stats.text">Compare monthly and annual totals and understand every category without spreadsheets.</p>
-                </article>
-                <article class="feature-row">
-                    <span>03</span>
-                    <h3 data-i18n="features.ai.title">A private AI assistant</h3>
-                    <p data-i18n="features.ai.text">Ask what renews soon, what costs the most and where you may be able to save.</p>
-                </article>
-            </div>
-        </section>
-
-        <section class="closing">
-            <div>
-                <h2 data-i18n="closing.title">Your subscriptions, finally clear.</h2>
-                <a href="https://apps.apple.com/app/id6745257638" target="_blank" rel="noopener" data-i18n="closing.link">Open App Store</a>
-            </div>
-        </section>
     </main>
 
     <footer id="contact">
@@ -710,6 +569,14 @@
             <div class="footer-column">
                 <h3 data-i18n="footer.contact">Contact</h3>
                 <a href="mailto:clr91dev@gmail.com">clr91dev@gmail.com</a>
+                <div class="social-links" aria-label="Social media">
+                    <a class="social-link instagram" href="https://www.instagram.com/clr91dev/" target="_blank" rel="noopener noreferrer" aria-label="clr91dev on Instagram" title="Instagram">
+                        <img src="./assets/instagram.png" alt="">
+                    </a>
+                    <a class="social-link threads" href="https://www.threads.com/@clr91dev" target="_blank" rel="noopener noreferrer" aria-label="clr91dev on Threads" title="Threads">
+                        <img src="./assets/threads.png" alt="">
+                    </a>
+                </div>
                 <a href="./privacy/" data-i18n="footer.privacy">Privacy Policy</a>
                 <a href="./terms/" data-i18n="footer.terms">Terms of Use</a>
             </div>
