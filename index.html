@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clr91dev — Nueva dirección / New address</title>
+<link rel="canonical" href="https://samuelclr91-del.github.io/clr91dev/">
+<script>
+(function () {
+  var path = location.pathname.replace(/^\/Trackle\/?/i, '').toLowerCase();
+  var route = /privacy|privacidad/.test(path) ? 'privacy/' : /terms|terminos|términos/.test(path) ? 'terms/' : /support|soporte|contact/.test(path) ? '#contact' : /^(trackle|bezly|zuvly)\//.test(path) ? path : '';
+  var target = new URL(route, 'https://samuelclr91-del.github.io/clr91dev/');
+  target.search = location.search;
+  if (location.hash) target.hash = location.hash;
+  location.replace(target.href);
+}());
+</script>
+<meta http-equiv="refresh" content="0; url=https://samuelclr91-del.github.io/clr91dev/">
+<style>body{font:17px system-ui,sans-serif;max-width:38rem;margin:15vh auto;padding:24px;background:#f5f4f0;color:#242424}a{color:inherit}</style>
+</head>
+<body><h1>clr91dev</h1><p>La web tiene una nueva dirección. / The website has a new address.</p><p><a href="https://samuelclr91-del.github.io/clr91dev/">Abrir la web / Open website →</a></p></body>
+</html>
+
