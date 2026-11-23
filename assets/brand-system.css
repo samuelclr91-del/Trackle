@@ -1,0 +1,274 @@
+/* Shared portfolio language. Each app keeps its own accent and product imagery. */
+:root {
+  --site-ink: #111;
+  --site-muted: #6b6b6b;
+  --site-line: #dedfdb;
+  --site-paper: #fff;
+  --site-soft: #f7f7f5;
+  --site-width: 1380px;
+}
+
+.portfolio-home,
+.trackle-site,
+body.bezly-showcase {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.portfolio-home .site-header,
+.trackle-site .site-header,
+body.bezly-showcase .bezly-nav {
+  height: 76px;
+  min-height: 76px;
+  border-bottom: 1px solid var(--site-line);
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.portfolio-home .brand img,
+.trackle-site .home-link img,
+body.bezly-showcase .brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+  flex: none;
+}
+
+.trackle-site .header-inner,
+body.bezly-showcase .bezly-nav {
+  max-width: var(--site-width);
+  margin-inline: auto;
+  padding-inline: 42px;
+}
+
+.trackle-site .home-link,
+body.bezly-showcase .brand {
+  min-height: 40px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--site-ink);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+
+.trackle-site .home-link:hover,
+.trackle-site .home-link:focus-visible {
+  border: 0;
+  background: none;
+  color: var(--site-ink);
+  transform: none;
+}
+
+.trackle-site .home-link-label { white-space: nowrap; }
+.trackle-site .trackle-brand img { width: 34px; height: 34px; border-radius: 9px; }
+.trackle-site .trackle-brand,
+body.bezly-showcase .current-app {
+  color: var(--site-ink);
+  font-size: 14px;
+  font-weight: 750;
+  letter-spacing: -.02em;
+}
+
+.trackle-site .header-divider,
+body.bezly-showcase .header-divider {
+  width: 1px;
+  height: 25px;
+  flex: none;
+  background: var(--site-line);
+}
+
+.portfolio-home .desktop-nav a,
+.trackle-site .desktop-nav a,
+body.bezly-showcase .nav-links a {
+  color: #32393e;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.portfolio-home .language button,
+.trackle-site .language button,
+body.bezly-showcase .language-switcher button {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.trackle-site .header-download,
+body.bezly-showcase .nav-actions .button {
+  min-height: 40px;
+  padding-inline: 18px;
+  border: 1px solid var(--site-ink);
+  border-radius: 999px;
+  background: var(--site-ink);
+  color: white !important;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.trackle-site .header-download:hover,
+body.bezly-showcase .nav-actions .button:hover {
+  background: white;
+  color: var(--site-ink) !important;
+}
+
+/* The app pages share the home page's black, white and quiet-rule vocabulary. */
+.trackle-site {
+  --ink: var(--site-ink);
+  --quiet: var(--site-muted);
+  --max: var(--site-width);
+  --radius-large: 28px;
+  --radius-medium: 20px;
+}
+
+.trackle-site .site-header { background: #fff; }
+.trackle-site .hero { background: #fff; }
+.trackle-site .hero h1,
+.trackle-site h2 { letter-spacing: -.06em; }
+.trackle-site .eyebrow,
+.trackle-site .section-label { letter-spacing: .18em; }
+.trackle-site .header-brand-group { gap: 12px; }
+.trackle-site .footer-inner { border-top: 1px solid var(--site-line); }
+.trackle-site .hero-visual::before,
+.trackle-site .feature-media::before,
+.trackle-site .privacy-mark { display: none; }
+.trackle-site .hero-ipad,
+.trackle-site .hero-iphone,
+.trackle-site .feature-media img,
+.trackle-site .devices-ipad,
+.trackle-site .devices-phone { filter: none; transform: none; animation: none !important; }
+.trackle-site [data-reveal],
+.trackle-site [data-reveal].is-visible { opacity: 1; transform: none; transition: none; }
+.trackle-site .hero-notes span::before { background: var(--site-ink); }
+.trackle-site .eyebrow,
+.trackle-site .section-label,
+.trackle-site .feature-number,
+.trackle-site .signal-strip span,
+.trackle-site .privacy-points span { color: var(--site-muted); }
+.trackle-site .problem,
+.trackle-site .privacy { background: #151515; }
+.trackle-site .problem { margin-top: 100px; }
+.trackle-site .renewal-stack { border-radius: 0; box-shadow: none; backdrop-filter: none; }
+.trackle-site .renewal-card { border-radius: 0; }
+.trackle-site .renewal-card:nth-child(2) { transform: none; }
+.trackle-site .service-icon { box-shadow: none; }
+.trackle-site .feature {
+  --feature-bg: #f7f7f5;
+  --feature-accent: #333;
+  margin-top: 0;
+  border-top: 1px solid var(--site-line);
+  border-radius: 0;
+  background: #fff;
+}
+.trackle-site .feature:last-of-type { border-bottom: 1px solid var(--site-line); }
+.trackle-site .feature-copy li::before { background: #f0f0ed; color: var(--site-ink); }
+.trackle-site .devices { border-block: 1px solid var(--site-line); background: #f7f7f5; }
+.trackle-site .device-badges span { background: #fff; color: var(--site-ink); }
+.trackle-site .final-cta { min-height: 580px; background: #151515; }
+.trackle-site .final-icon { box-shadow: none; }
+.trackle-site .button,
+.trackle-site .header-download { transition: background .15s ease, color .15s ease; }
+.trackle-site .button:hover,
+.trackle-site .button:focus-visible { transform: none; }
+.trackle-site .button-primary:hover,
+.trackle-site .button-primary:focus-visible { border-color: #333; background: #333; }
+.trackle-site .button-light { color: #111; }
+
+/* Bezly uses the same light canvas and dark type; warm yellow stays an accent. */
+body.bezly-showcase {
+  --bg: #fff;
+  --surface: #f7f7f5;
+  --surface-raised: #fff;
+  --text: var(--site-ink);
+  --muted: var(--site-muted);
+  --line: var(--site-line);
+  --line-strong: #c9cecb;
+  --accent: #111;
+  --accent-dark: #111;
+  --page-width: var(--site-width);
+  color-scheme: light;
+  background: #fff;
+  color: var(--site-ink);
+}
+
+body.bezly-showcase .bezly-nav { max-width: none; }
+body.bezly-showcase .nav-links { color: var(--site-muted); }
+body.bezly-showcase .language-switcher {
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+body.bezly-showcase .language-switcher button.active {
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+body.bezly-showcase .eyebrow { color: var(--site-muted); letter-spacing: .18em; }
+body.bezly-showcase .button {
+  border: 1px solid var(--site-ink);
+  border-radius: 999px;
+  background: var(--site-ink);
+  color: white !important;
+  font-size: 12px;
+  font-weight: 750;
+}
+body.bezly-showcase .button:hover { background: #2c3944; }
+body.bezly-showcase .showcase-hero { min-height: 730px; }
+body.bezly-showcase .hero-ipad,
+body.bezly-showcase .hero-iphone,
+body.bezly-showcase .ipad-shot,
+body.bezly-showcase .iphone-shot {
+  border-color: rgba(16, 25, 35, .12);
+  box-shadow: none;
+}
+body.bezly-showcase .feature-card span { color: var(--site-ink); }
+body.bezly-showcase .feature-card:nth-child(2) span,
+body.bezly-showcase .feature-card:nth-child(5) span { color: var(--site-ink); }
+body.bezly-showcase .privacy-mark {
+  border-radius: 0;
+  background: #f7f7f5;
+  color: #111;
+}
+body.bezly-showcase .bezly-footer { padding-block: 42px 58px; }
+body.bezly-showcase .eyebrow { color: var(--site-muted); }
+body.bezly-showcase .brand img { border-radius: 0; }
+body.bezly-showcase .app-identity img { border-radius: 8px; }
+body.bezly-showcase .hero-ipad,
+body.bezly-showcase .hero-iphone,
+body.bezly-showcase .ipad-shot,
+body.bezly-showcase .iphone-shot { background: #fff; }
+body.bezly-showcase .button,
+body.bezly-showcase .nav-actions .button { transition: background .15s ease, color .15s ease; }
+body.bezly-showcase .button:hover { transform: none; background: #333; }
+
+@media (max-width: 900px) {
+  .trackle-site .header-inner,
+  body.bezly-showcase .bezly-nav { padding-inline: 20px; }
+  body.bezly-showcase .current-app,
+  body.bezly-showcase .header-divider { display: none; }
+}
+
+@media (max-width: 640px) {
+  .portfolio-home .site-header,
+  .trackle-site .site-header,
+  body.bezly-showcase .bezly-nav { height: 66px; min-height: 66px; }
+  .trackle-site .header-inner,
+  body.bezly-showcase .bezly-nav { padding-inline: 16px; }
+  .trackle-site .home-link { width: 38px; min-height: 38px; }
+  .trackle-site .home-link-label,
+  .trackle-site .header-divider { display: none; }
+  body.bezly-showcase .brand span { display: inline; font-size: 13px; }
+  body.bezly-showcase .language-switcher { padding: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trackle-site *,
+  body.bezly-showcase * { scroll-behavior: auto; }
+}
